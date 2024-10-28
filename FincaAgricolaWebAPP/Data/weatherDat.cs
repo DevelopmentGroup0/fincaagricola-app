@@ -1,11 +1,13 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
 namespace Data
 {
-    public class weatherDat
+    public class WeatherDat
     {
         Persistence objPer = new Persistence();
 
@@ -55,6 +57,22 @@ namespace Data
             return objData;
         }
 
+        //Metodo para mostrar ClimaDDl
+        public DataSet showWeatherDDL()
+        {
+            MySqlDataAdapter objAdapter = new MySqlDataAdapter();
+            DataSet objData = new DataSet();
+
+            MySqlCommand objSelectCmd = new MySqlCommand();
+            objSelectCmd.Connection = objPer.openConnection();
+            objSelectCmd.CommandText = "spSelectWeatherDDL";
+            objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objAdapter.SelectCommand = objSelectCmd;
+            objAdapter.Fill(objData);
+            objPer.closeConnection();
+            return objData;
+        }
+
         //Metodo para actualizar una Clima
         public bool updateWeather(int _idWeather, float _temperatura, string _humedad)
         {
@@ -65,7 +83,8 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procUpdateWeather";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("clim_temperatura", MySqlDbType.Float).Value = _idWeather;
+            objSelectCmd.Parameters.Add("clim_id", MySqlDbType.Int32).Value = _idWeather;
+            objSelectCmd.Parameters.Add("clim_temperatura", MySqlDbType.Float).Value = _temperatura;
             objSelectCmd.Parameters.Add("clim_humedad", MySqlDbType.VarString).Value = _humedad;
 
             try
@@ -94,7 +113,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procDeleteWeather";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("clim_id", MySqlDbType.Int32).Value = _idCategory;
+            objSelectCmd.Parameters.Add("clim_id", MySqlDbType.Int32).Value = _idWeather;
 
             try
             {
