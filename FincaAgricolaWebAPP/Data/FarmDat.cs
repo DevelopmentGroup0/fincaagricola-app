@@ -26,7 +26,22 @@ namespace Data
             objPer.closeConnection();
             return objData;
         }
-       
+
+        public DataSet showFarmDDL()
+        {
+            MySqlDataAdapter objAdapter = new MySqlDataAdapter();
+            DataSet objData = new DataSet();
+
+            MySqlCommand objSelectCmd = new MySqlCommand();
+            objSelectCmd.Connection = objPer.openConnection();
+            objSelectCmd.CommandText = "procSelectFinca";
+            objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objAdapter.SelectCommand = objSelectCmd;
+            objAdapter.Fill(objData);
+            objPer.closeConnection();
+            return objData;
+        }
+
 
         //Metodo para guardar una nueva Finca
         public bool saveFarm(string _nombre, string _ubicacion)
