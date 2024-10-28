@@ -124,7 +124,7 @@
     <Compile Include="MachineryDat.cs" />
     <Compile Include="ParcelDat.cs" />
     <Compile Include="CategoryDat.cs" />
-    <Compile Include="CropsDat.cs" />
+    <Compile Include="CropDat.cs" />
     <Compile Include="ClienteDat.cs" />
     <Compile Include="FarmDat.cs" />
     <Compile Include="InputsDatcs.cs" />
@@ -135,7 +135,7 @@
     <Compile Include="SaleDat.cs" />
     <Compile Include="SupplierDat.cs" />
     <Compile Include="UserDat.cs" />
-    <Compile Include="weatherDat.cs" />
+    <Compile Include="WeatherDat.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

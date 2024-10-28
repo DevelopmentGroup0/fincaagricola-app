@@ -7,49 +7,19 @@ using System.Web;
 
 namespace Data
 {
-    public class WeatherDat
+    public class CropDat
     {
         Persistence objPer = new Persistence();
 
-        //Metodo para guardar un Clima
-        public bool saveWeather(float _temperatura, string _humedad)
-        {
-            bool executed = false;
-            int row;
-
-            MySqlCommand objSelectCmd = new MySqlCommand();
-            objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procInsertWeather";
-            objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("clim_temperatura", MySqlDbType.Float).Value = _temperatura;
-            objSelectCmd.Parameters.Add("clim_humedad", MySqlDbType.VarString).Value = _humedad;
-
-            try
-            {
-                row = objSelectCmd.ExecuteNonQuery();
-                if (row == 1)
-                {
-                    executed = true;
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error " + e.ToString());
-            }
-            objPer.closeConnection();
-            return executed;
-
-        }
-
-        //Metodo para mostrar Clima
-        public DataSet showWeather()
+        //Metodo para mostrar todos los Cultivos
+        public DataSet showCrops()
         {
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
             DataSet objData = new DataSet();
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procSelectWeather";
+            objSelectCmd.CommandText = "procSelectCrops";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
             objAdapter.SelectCommand = objSelectCmd;
             objAdapter.Fill(objData);
@@ -57,15 +27,14 @@ namespace Data
             return objData;
         }
 
-        //Metodo para mostrar ClimaDDl
-        public DataSet showWeatherDDL()
+        public DataSet showCropsDDL()
         {
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
             DataSet objData = new DataSet();
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "spSelectWeatherDDL";
+            objSelectCmd.CommandText = "spSelectCropsDDL";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
             objAdapter.SelectCommand = objSelectCmd;
             objAdapter.Fill(objData);
@@ -73,20 +42,20 @@ namespace Data
             return objData;
         }
 
-        //Metodo para actualizar una Clima
-        public bool updateWeather(int _idWeather, float _temperatura, string _humedad)
+
+        //Metodo para guardar un Cultivo
+        public bool saveCrops(string _nombre, string _descripcion, int _fkParcelaId)
         {
             bool executed = false;
             int row;
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procUpdateWeather";
+            objSelectCmd.CommandText = "procInsertCrops";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("clim_id", MySqlDbType.Int32).Value = _idWeather;
-            objSelectCmd.Parameters.Add("clim_temperatura", MySqlDbType.Float).Value = _temperatura;
-            objSelectCmd.Parameters.Add("clim_humedad", MySqlDbType.VarString).Value = _humedad;
-
+            objSelectCmd.Parameters.Add("cul_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("cul_descripcion", MySqlDbType.VarString).Value = _descripcion;
+            objSelectCmd.Parameters.Add("tbl_parcela_par_id", MySqlDbType.Int32).Value = _fkParcelaId;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
@@ -104,16 +73,48 @@ namespace Data
 
         }
 
-        public bool deleteWeather(int _idWeather)
+        //Metodo para actualizar un Cultivo
+        public bool updateCrops(int _idCultivo, string _nombre, string _descripcion, int _fkParcelaId)
         {
             bool executed = false;
             int row;
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procDeleteWeather";
+            objSelectCmd.CommandText = "procUpdateCrops";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("clim_id", MySqlDbType.Int32).Value = _idWeather;
+            objSelectCmd.Parameters.Add("cul_id", MySqlDbType.Int32).Value = _idCultivo;
+            objSelectCmd.Parameters.Add("cul_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("cul_descripcion", MySqlDbType.VarString).Value = _descripcion;
+            objSelectCmd.Parameters.Add("tbl_parcela_par_id", MySqlDbType.Int32).Value = _fkParcelaId;
+            try
+            {
+                row = objSelectCmd.ExecuteNonQuery();
+                if (row == 1)
+                {
+                    executed = true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error " + e.ToString());
+            }
+            objPer.closeConnection();
+            return executed;
+
+        }
+
+        //Metodo para borrar un Cultivo
+        public bool deleteCrops(int _idCultivo)
+        {
+            bool executed = false;
+            int row;
+
+            MySqlCommand objSelectCmd = new MySqlCommand();
+            objSelectCmd.Connection = objPer.openConnection();
+            objSelectCmd.CommandText = "procDeleteCrop";
+            objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objSelectCmd.Parameters.Add("cul_id", MySqlDbType.Int32).Value = _idCultivo;
 
             try
             {
@@ -129,6 +130,7 @@ namespace Data
             }
             objPer.closeConnection();
             return executed;
+
         }
     }
 }

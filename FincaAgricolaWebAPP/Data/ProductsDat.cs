@@ -10,6 +10,36 @@ namespace Data
     public class ProductsDat
     {
         Persistence objPer = new Persistence();
+        // Método para mostrar los productos
+        public DataSet showProducts()
+        {
+            MySqlDataAdapter objAdapter = new MySqlDataAdapter();
+            DataSet objData = new DataSet();
+            MySqlCommand objSelectCmd = new MySqlCommand();
+            objSelectCmd.Connection = objPer.openConnection();
+            objSelectCmd.CommandText = "procSelectProduct";
+            objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objAdapter.SelectCommand = objSelectCmd;
+            objAdapter.Fill(objData);
+            objPer.closeConnection();
+            return objData;
+        }
+        //Metodo para mostrar unicamente el id y el nombre
+        public DataSet showProductDDL()
+        {
+            MySqlDataAdapter objAdapter = new MySqlDataAdapter();
+            DataSet objData = new DataSet();
+
+            MySqlCommand objSelectCmd = new MySqlCommand();
+            objSelectCmd.Connection = objPer.openConnection();
+            objSelectCmd.CommandText = "spSelectProductDDL";
+            objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objAdapter.SelectCommand = objSelectCmd;
+            objAdapter.Fill(objData);
+            objPer.closeConnection();
+            return objData;
+        }
+
 
         //Metodo para guardar un nuevo producto
         public bool saveProducts(string _name, string _description, int _quantity, double _price, string _img, int _fkProvider, int _fkCategory)
@@ -46,21 +76,7 @@ namespace Data
 
             return executed;
         }
-        // Método para mostrar los productos
-        public DataSet showProducts()
-        {
-            MySqlDataAdapter objAdapter = new MySqlDataAdapter();
-            DataSet objData = new DataSet();
-            MySqlCommand objSelectCmd = new MySqlCommand();
-            objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procSelectProduct";
-            objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objAdapter.SelectCommand = objSelectCmd;
-            objAdapter.Fill(objData);
-            objPer.closeConnection();
-            return objData;
-        }
-
+        
         //Metodo para actulizar un producto
         public bool updateProducts(int _idProduct, string _name, string _description, int _quantity, double _price, string _img, int _fkProvider, int _fkCategory)
         {
