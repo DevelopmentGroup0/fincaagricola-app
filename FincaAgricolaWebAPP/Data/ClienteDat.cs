@@ -26,7 +26,21 @@ namespace Data
             objPer.closeConnection();
             return objData;
         }
+        //Metodo para mostrar unicamente el id y la nombre
+        public DataSet showClienteDDL()
+        {
+            MySqlDataAdapter objAdapter = new MySqlDataAdapter();
+            DataSet objData = new DataSet();
 
+            MySqlCommand objSelectCmd = new MySqlCommand();
+            objSelectCmd.Connection = objPer.openConnection();
+            objSelectCmd.CommandText = "spSelectClienteDDL";
+            objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objAdapter.SelectCommand = objSelectCmd;
+            objAdapter.Fill(objData);
+            objPer.closeConnection();
+            return objData;
+        }
         //Metodo para guardar un cliente
         public bool saveCliente(string _nombre, string _correo, string _contrasena, string _direccion, string _ciudad)
         {
