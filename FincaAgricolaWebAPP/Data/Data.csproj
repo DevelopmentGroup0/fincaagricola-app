@@ -135,7 +135,7 @@
     <Compile Include="SaleDat.cs" />
     <Compile Include="SupplierDat.cs" />
     <Compile Include="UserDat.cs" />
-    <Compile Include="weatherDat.cs" />
+    <Compile Include="WeatherDat.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
