@@ -26,8 +26,22 @@ namespace Data
             objPer.closeConnection();
             return objData;
         }
-       
 
+        //Metodo para mostrar unicamente el id y la ubiacion 
+        public DataSet showParcelDDL()
+        {
+            MySqlDataAdapter objAdapter = new MySqlDataAdapter();
+            DataSet objData = new DataSet();
+
+            MySqlCommand objSelectCmd = new MySqlCommand();
+            objSelectCmd.Connection = objPer.openConnection();
+            objSelectCmd.CommandText = "spSelectParcelaDDL";
+            objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objAdapter.SelectCommand = objSelectCmd;
+            objAdapter.Fill(objData);
+            objPer.closeConnection();
+            return objData;
+        }
         //Metodo para guardar una nueva Parcela
         public bool saveParcel(int _dimenciones, string _ubicacion, int _fkfinca, int _fkclima)
         {
@@ -61,7 +75,7 @@ namespace Data
         }
 
         //Metodo para actualizar una Parcela
-        public bool updateParcel(int _idFinca, int _dimenciones, string _ubicacion, int _fkfinca, int _fkclima)
+        public bool updateParcel(int _idParcela, int _dimenciones, string _ubicacion, int _fkfinca, int _fkclima)
         {
             bool executed = false;
             int row;
@@ -70,7 +84,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procUpdateParcela"; 
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("par_id", MySqlDbType.Int32).Value = _idFinca;
+            objSelectCmd.Parameters.Add("par_id", MySqlDbType.Int32).Value = _idParcela;
             objSelectCmd.Parameters.Add("par_dimenciones", MySqlDbType.Int32).Value = _dimenciones;
             objSelectCmd.Parameters.Add("par_ubicacion", MySqlDbType.VarString).Value = _ubicacion;
             objSelectCmd.Parameters.Add("tbl_finca_fin_id", MySqlDbType.Int32).Value = _fkfinca;
