@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -22,7 +24,7 @@ namespace Data
             return objData;
         }
 
-        public bool saveSale(string _fecha, int _total, int _fkProductosId, int _fkProId, int _fkCatId, int _fkCliId)
+        public bool saveSale(DateTime _fecha, int _total, int _fkProdId, int _fkProId, int _fkCatId, int _fkCliId)
         {
         bool executed = false;
             int row;
@@ -30,10 +32,10 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procInsertSale"; 
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("ven_fecha", MySqlDbType.VarString).Value = _fecha;
+            objSelectCmd.Parameters.Add("ven_fecha", MySqlDbType.Date).Value = _fecha;
             objSelectCmd.Parameters.Add("ven_total", MySqlDbType.Int32).Value = _total;
-            objSelectCmd.Parameters.Add("tbl_productos_pro_id", MySqlDbType.Int32).Value = _fkProductosId;
-            objSelectCmd.Parameters.Add("tbl_productos_tbl_proveedor_pro_id", MySqlDbType.Int).Value = _fkProId;
+            objSelectCmd.Parameters.Add("tbl_productos_pro_id", MySqlDbType.Int32).Value = _fkProdId;
+            objSelectCmd.Parameters.Add("tbl_productos_tbl_proveedor_pro_id", MySqlDbType.Int32).Value = _fkProId;
             objSelectCmd.Parameters.Add("tbl_productos_tbl_categoria_cat_id", MySqlDbType.Int32).Value = _fkCatId;
             objSelectCmd.Parameters.Add("tbl_cliente_cli_id", MySqlDbType.Int32).Value = _fkCliId;
 
@@ -55,24 +57,23 @@ namespace Data
             objPer.closeConnection();          
             return executed;
         }
-        public bool updateSale(string _fecha, int _total, int _fkProductosId, int _fkProId, int _fkCatId, int _fkCliId)
+        public bool updateSale(int idSale, string _fecha, int _total, int _fkProdId, int _fkProId, int _fkCatId, int _fkCliId)
         {
             bool executed = false;
             int row;
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procUpdateSale"; //nombre del procedimiento almacenado
+            objSelectCmd.CommandText = "procUpdateSale";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-
-            // Se agregan parámetros al comando para pasar los valores del producto.
-            objSelectCmd.Parameters.Add("ven_fecha", MySqlDbType.VarString).Value = _fecha;
-            objSelectCmd.Parameters.Add("ven_total", MySqlDbType.Int).Value = _total;
-            objSelectCmd.Parameters.Add("tbl_productos_pro_id", MySqlDbType.Int).Value = _fkProductosId;
+            objSelectCmd.Parameters.Add("ven_id", MySqlDbType.Int32).Value = idSale;
+            objSelectCmd.Parameters.Add("ven_fecha", MySqlDbType.Date).Value = _fecha;
+            objSelectCmd.Parameters.Add("ven_total", MySqlDbType.Int32).Value = _total;
+            objSelectCmd.Parameters.Add("tbl_productos_pro_id", MySqlDbType.Int32).Value = _fkProdId;
             objSelectCmd.Parameters.Add("tbl_productos_tbl_proveedor_pro_id", MySqlDbType.Int32).Value = _fkProId;
-            objSelectCmd.Parameters.Add("tbl_productos_tbl_categoria_cat_id", MySqlDbType.Int).Value = _fkCatId;
+            objSelectCmd.Parameters.Add("tbl_productos_tbl_categoria_cat_id", MySqlDbType.Int32).Value = _fkCatId;
             objSelectCmd.Parameters.Add("tbl_cliente_cli_id", MySqlDbType.Int32).Value = _fkCliId;
-            
+
 
             try
             {
@@ -91,7 +92,7 @@ namespace Data
         }
 
         
-        public bool deleteSale(int _idVen)
+        public bool deleteSale(int idSale)
         {
             bool executed = false;
             int row;
@@ -100,7 +101,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procDeleteSale"; 
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("Ven_id", MySqlDbType.Int32).Value = _idVen;
+            objSelectCmd.Parameters.Add("Ven_id", MySqlDbType.Int32).Value = idSale;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();

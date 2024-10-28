@@ -29,7 +29,7 @@ namespace Data
        
 
         //Metodo para guardar una nueva Parcela
-        public bool saveParcel(int _dimenciones, string _ubicacion, int _fkfinca, int _fkclima)
+        public bool saveParcel(int _dimensiones, string _ubicacion, int _fkfinca, int _fkclima)
         {
             bool executed = false;
             int row;
@@ -38,7 +38,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procInsertParcela";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("par_dimenciones", MySqlDbType.Int32).Value = _dimenciones;
+            objSelectCmd.Parameters.Add("par_dimenciones", MySqlDbType.Int32).Value = _dimensiones;
             objSelectCmd.Parameters.Add("par_ubicacion", MySqlDbType.VarString).Value = _ubicacion;
             objSelectCmd.Parameters.Add("tbl_finca_fin_id", MySqlDbType.Int32).Value = _fkfinca;
             objSelectCmd.Parameters.Add("par_tbl_clima_id", MySqlDbType.Int32).Value = _fkclima;
@@ -61,7 +61,7 @@ namespace Data
         }
 
         //Metodo para actualizar una Parcela
-        public bool updateParcel(int _idFinca, int _dimenciones, string _ubicacion, int _fkfinca, int _fkclima)
+        public bool updateParcel(int _idParcela, int _dimensiones, string _ubicacion, int _fkfinca, int _fkclima)
         {
             bool executed = false;
             int row;
@@ -70,8 +70,8 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procUpdateParcela"; 
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("par_id", MySqlDbType.Int32).Value = _idFinca;
-            objSelectCmd.Parameters.Add("par_dimenciones", MySqlDbType.Int32).Value = _dimenciones;
+            objSelectCmd.Parameters.Add("par_id", MySqlDbType.Int32).Value = _idParcela;
+            objSelectCmd.Parameters.Add("par_dimensiones", MySqlDbType.Int32).Value = _dimensiones;
             objSelectCmd.Parameters.Add("par_ubicacion", MySqlDbType.VarString).Value = _ubicacion;
             objSelectCmd.Parameters.Add("tbl_finca_fin_id", MySqlDbType.Int32).Value = _fkfinca;
             objSelectCmd.Parameters.Add("tbl_clima_clim_id", MySqlDbType.Int32).Value = _fkclima;

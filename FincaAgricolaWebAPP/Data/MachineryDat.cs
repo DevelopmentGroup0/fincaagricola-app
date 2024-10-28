@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -8,6 +10,8 @@ namespace Data
     public class MachineryDat
     {
         // Método para mostrar Maquinarias
+
+        Persistence objPer = new Persistence();
         public DataSet showMachinery()
         {
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
@@ -60,7 +64,7 @@ namespace Data
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procUpdateMaquinaria";
-            objSelectCmd.Parameters.Add("ma_id", MySqlDbType.VarString).Value = _idMachinery;
+            objSelectCmd.Parameters.Add("ma_id", MySqlDbType.Int32).Value = _idMachinery;
             objSelectCmd.Parameters.Add("ma_nombre", MySqlDbType.VarString).Value = _nombre;
             objSelectCmd.Parameters.Add("ma_descripcion", MySqlDbType.VarString).Value = _descripcion;
             objSelectCmd.Parameters.Add("ma_clasificacion", MySqlDbType.VarString).Value = _clasificacion;
