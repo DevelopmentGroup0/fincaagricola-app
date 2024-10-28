@@ -25,9 +25,14 @@ namespace Logic
         {
             return objFin.saveFarm(_nombre, _ubicacion);
         }
+        public bool updateFarm(int _idFarm, string _nombre, string _ubicacion)
+        {
+            return objFin.updateFarm(_idFarm, _nombre, _ubicacion);
+        }
         public bool deleteFarm(int _idFarm)
         {
             return objFin.deleteFarm(_idFarm);
         }
+
     }  
 }
