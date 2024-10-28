@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -7,9 +9,10 @@ namespace Data
 {
     public class IrrigationDat
     {
+        Persistence objPer = new Persistence();
+
         public DataSet showIrrigation()
         {
-            
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
             DataSet objData = new DataSet();
             MySqlCommand objSelectCmd = new MySqlCommand();
@@ -49,7 +52,7 @@ namespace Data
             objPer.closeConnection();
             return executed;
         }
-        public bool updateIrrigation(string _tipo, string _cantidad, string _frecuencia, int _fkCultivoId, int _fkParId)
+        public bool updateIrrigation(int _idRiego, string _tipo, string _cantidad, string _frecuencia, int _fkCultivoId, int _fkParId)
         {
             bool executed = false;
             int row;
@@ -57,6 +60,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "spUpdateIrrigation"; 
             objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objSelectCmd.Parameters.Add("rie_id", MySqlDbType.Int32).Value = _idRiego;
             objSelectCmd.Parameters.Add("rie_tipo", MySqlDbType.VarString).Value = _tipo;
             objSelectCmd.Parameters.Add("rie_cantidad", MySqlDbType.VarString).Value = _cantidad;
             objSelectCmd.Parameters.Add("rie_frecuencia", MySqlDbType.VarString).Value = _frecuencia;
@@ -77,7 +81,7 @@ namespace Data
             objPer.closeConnection();
             return executed;
         }
-        public bool deleteIrrigation(int _idRie)
+        public bool deleteIrrigation(int _idRiego)
         {
             bool executed = false;
             int row;
@@ -86,7 +90,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procDeleteWeather";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("Rie_id", MySqlDbType.Int32).Value = _idCategory;
+            objSelectCmd.Parameters.Add("Rie_id", MySqlDbType.Int32).Value = _idRiego;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();

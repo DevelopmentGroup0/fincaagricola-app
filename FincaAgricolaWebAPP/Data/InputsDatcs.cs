@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -9,7 +11,7 @@ namespace Data
     {
         Persistence objPer = new Persistence();
 
-        //Metodo para mostrar todas las Inputs
+        //Metodo para mostrar Insumos
         public DataSet showInputs()
         {
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
@@ -26,8 +28,8 @@ namespace Data
         }
 
 
-        //Metodo para guardar una nueva Inputs
-        public bool saveInputs(string _nombre, string _tipo, string _cantidad int _fkCultivoId, int _fkParcelaId)
+        //Metodo para guardar un Insumo
+        public bool saveInputs(string _nombre, string _tipo, string _cantidad, int _fkCultivoId, int _fkParcelaId)
         {
             bool executed = false;
             int row;
@@ -58,7 +60,7 @@ namespace Data
 
         }
 
-        //Metodo para actualizar una Inputs
+        //Metodo para actualizar un Cultivo
         public bool updateInputs(int _idInputs, string _nombre, string _tipo, string _cantidad, int _fkCultivoId, int _fkParcelaId)
         {
             bool executed = false;
@@ -68,6 +70,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procUpdateInputs";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objSelectCmd.Parameters.Add("ins_id", MySqlDbType.Int32).Value = _idInputs;
             objSelectCmd.Parameters.Add("ins_nombre", MySqlDbType.VarString).Value = _nombre;
             objSelectCmd.Parameters.Add("ins_tipo", MySqlDbType.VarString).Value = _tipo;
             objSelectCmd.Parameters.Add("ins_cantidad", MySqlDbType.VarString).Value = _cantidad;

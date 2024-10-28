@@ -7,18 +7,19 @@ using System.Web;
 
 namespace Data
 {
-    public class MachineryDat
+    public class CropDat
     {
-        // Método para mostrar Maquinarias
-
         Persistence objPer = new Persistence();
-        public DataSet showMachinery()
+
+        //Metodo para mostrar todos los Cultivos
+        public DataSet showCrops()
         {
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
             DataSet objData = new DataSet();
+
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procSelectMaquinaria";
+            objSelectCmd.CommandText = "procSelectCrops";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
             objAdapter.SelectCommand = objSelectCmd;
             objAdapter.Fill(objData);
@@ -26,50 +27,35 @@ namespace Data
             return objData;
         }
 
-        // Método para guardar una Maquinaria
-        public bool saveMachinery(string _nombre, string _descripcion, string _clasificacion, int _fkCultivo, int _fkParcela)
+        public DataSet showCropsDDL()
         {
-            bool executed = false;
-            int row;
+            MySqlDataAdapter objAdapter = new MySqlDataAdapter();
+            DataSet objData = new DataSet();
+
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procInsertMaquinaria";
+            objSelectCmd.CommandText = "spSelectCropsDDL";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("ma_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("ma_descripcion", MySqlDbType.VarString).Value = _descripcion;
-            objSelectCmd.Parameters.Add("ma_clasificacion", MySqlDbType.VarString).Value = _clasificacion;
-            objSelectCmd.Parameters.Add("tbl_cultivo_cul_id", MySqlDbType.Int32).Value = _fkCultivo;
-            objSelectCmd.Parameters.Add("tbl_cultivo_tbl_parcela_par_id", MySqlDbType.Int32).Value = _fkParcela;
-            try
-            {
-                row = objSelectCmd.ExecuteNonQuery();
-                if (row == 1)
-                {
-                    executed = true;
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error " + e.ToString());
-            }
+            objAdapter.SelectCommand = objSelectCmd;
+            objAdapter.Fill(objData);
             objPer.closeConnection();
-            return executed;
+            return objData;
         }
 
-        //Método para actualizar una Maquinaria
-        public bool updateMachinery(int _idMachinery, string _nombre, string _descripcion, string _clasificacion, int _fkCultivo, int _fkParcela)
+
+        //Metodo para guardar un Cultivo
+        public bool saveCrops(string _nombre, string _descripcion, int _fkParcelaId)
         {
             bool executed = false;
             int row;
+
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procUpdateMaquinaria";
-            objSelectCmd.Parameters.Add("ma_id", MySqlDbType.Int32).Value = _idMachinery;
-            objSelectCmd.Parameters.Add("ma_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("ma_descripcion", MySqlDbType.VarString).Value = _descripcion;
-            objSelectCmd.Parameters.Add("ma_clasificacion", MySqlDbType.VarString).Value = _clasificacion;
-            objSelectCmd.Parameters.Add("tbl_cultivo_cul_id", MySqlDbType.Int32).Value = _fkCultivo;
-            objSelectCmd.Parameters.Add("tbl_cultivo_tbl_parcela_par_id", MySqlDbType.Int32).Value = _fkParcela;
+            objSelectCmd.CommandText = "procInsertCrops";
+            objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objSelectCmd.Parameters.Add("cul_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("cul_descripcion", MySqlDbType.VarString).Value = _descripcion;
+            objSelectCmd.Parameters.Add("tbl_parcela_par_id", MySqlDbType.Int32).Value = _fkParcelaId;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
@@ -84,19 +70,23 @@ namespace Data
             }
             objPer.closeConnection();
             return executed;
+
         }
 
-        //Método para eliminar una Maquinaria
-        public bool deleteeMachinery(int _idMachinery)
+        //Metodo para actualizar un Cultivo
+        public bool updateCrops(int _idCultivo, string _nombre, string _descripcion, int _fkParcelaId)
         {
             bool executed = false;
             int row;
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procDeleteMaquinaria";
+            objSelectCmd.CommandText = "procUpdateCrops";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("ma_id", MySqlDbType.Int32).Value = _idMachinery;
+            objSelectCmd.Parameters.Add("cul_id", MySqlDbType.Int32).Value = _idCultivo;
+            objSelectCmd.Parameters.Add("cul_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("cul_descripcion", MySqlDbType.VarString).Value = _descripcion;
+            objSelectCmd.Parameters.Add("tbl_parcela_par_id", MySqlDbType.Int32).Value = _fkParcelaId;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
@@ -111,6 +101,36 @@ namespace Data
             }
             objPer.closeConnection();
             return executed;
+
+        }
+
+        //Metodo para borrar un Cultivo
+        public bool deleteCrops(int _idCultivo)
+        {
+            bool executed = false;
+            int row;
+
+            MySqlCommand objSelectCmd = new MySqlCommand();
+            objSelectCmd.Connection = objPer.openConnection();
+            objSelectCmd.CommandText = "procDeleteCrop";
+            objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objSelectCmd.Parameters.Add("cul_id", MySqlDbType.Int32).Value = _idCultivo;
+
+            try
+            {
+                row = objSelectCmd.ExecuteNonQuery();
+                if (row == 1)
+                {
+                    executed = true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error " + e.ToString());
+            }
+            objPer.closeConnection();
+            return executed;
+
         }
     }
 }

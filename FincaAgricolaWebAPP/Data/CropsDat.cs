@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -9,7 +11,7 @@ namespace Data
     {
         Persistence objPer = new Persistence();
 
-        //Metodo para mostrar todas las Crops
+        //Metodo para mostrar todos los Cultivos
         public DataSet showCrops()
         {
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
@@ -26,7 +28,7 @@ namespace Data
         }
 
 
-        //Metodo para guardar una nueva Crops
+        //Metodo para guardar un Cultivo
         public bool saveCrops(string _nombre, string _descripcion, int _fkParcelaId)
         {
             bool executed = false;
@@ -56,7 +58,7 @@ namespace Data
 
         }
 
-        //Metodo para actualizar una Crops
+        //Metodo para actualizar un Cultivo
         public bool updateCrops(int _idCultivo, string _nombre, string _descripcion, int _fkParcelaId)
         {
             bool executed = false;
@@ -66,6 +68,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procUpdateCrops";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objSelectCmd.Parameters.Add("cul_id", MySqlDbType.Int32).Value = _idCultivo;
             objSelectCmd.Parameters.Add("cul_nombre", MySqlDbType.VarString).Value = _nombre;
             objSelectCmd.Parameters.Add("cul_descripcion", MySqlDbType.VarString).Value = _descripcion;
             objSelectCmd.Parameters.Add("tbl_parcela_par_id", MySqlDbType.Int32).Value = _fkParcelaId;
@@ -86,7 +89,7 @@ namespace Data
 
         }
 
-        //Metodo para borrar una Crops
+        //Metodo para borrar un Cultivo
         public bool deleteCrops(int _idCultivo)
         {
             bool executed = false;
