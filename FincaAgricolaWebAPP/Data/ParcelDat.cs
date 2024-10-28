@@ -26,8 +26,22 @@ namespace Data
             objPer.closeConnection();
             return objData;
         }
-       
 
+        //Metodo para mostrar unicamente el id y la ubiacion 
+        public DataSet showParcelDDL()
+        {
+            MySqlDataAdapter objAdapter = new MySqlDataAdapter();
+            DataSet objData = new DataSet();
+
+            MySqlCommand objSelectCmd = new MySqlCommand();
+            objSelectCmd.Connection = objPer.openConnection();
+            objSelectCmd.CommandText = "spSelectParcelaDDL";
+            objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objAdapter.SelectCommand = objSelectCmd;
+            objAdapter.Fill(objData);
+            objPer.closeConnection();
+            return objData;
+        }
         //Metodo para guardar una nueva Parcela
         public bool saveParcel(int _dimensiones, string _ubicacion, int _fkfinca, int _fkclima)
         {
