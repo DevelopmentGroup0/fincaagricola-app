@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +9,9 @@ namespace Data
 {
     public class ClienteDat
     {
+        Persistence objPer = new Persistence();
+
+        //Metodo para mostrar todos los clientes
         public DataSet showCliente()
         {
 
@@ -21,7 +26,9 @@ namespace Data
             objPer.closeConnection();
             return objData;
         }
-        public bool saveCliente(string _nombre, string _correo, string _contraseña, string _direccion, string _ciudad)
+
+        //Metodo para guardar un cliente
+        public bool saveCliente(string _nombre, string _correo, string _contrasena, string _direccion, string _ciudad)
         {
             bool executed = false;
             int row;
@@ -31,7 +38,7 @@ namespace Data
             objSelectCmd.CommandType = CommandType.StoredProcedure;
             objSelectCmd.Parameters.Add("cli_nombre", MySqlDbType.VarString).Value = _nombre;
             objSelectCmd.Parameters.Add("cli_correo", MySqlDbType.VarString).Value = _correo;
-            objSelectCmd.Parameters.Add("cli_contraseña", MySqlDbType.VarString).Value = _contraseña;
+            objSelectCmd.Parameters.Add("cli_contrasena", MySqlDbType.VarString).Value = _contrasena;
             objSelectCmd.Parameters.Add("cli_direccion", MySqlDbType.VarString).Value = _direccion;
             objSelectCmd.Parameters.Add("cli_ciudad", MySqlDbType.VarString).Value = _ciudad;
             try
@@ -49,7 +56,9 @@ namespace Data
             objPer.closeConnection();
             return executed;
         }
-        public bool updateCliente(string _nombre, string _correo, string _contraseña, string _direccion, string _ciudad)
+
+        //Metodo para actualizar un cliente
+        public bool updateCliente(int _idClient,string _nombre, string _correo, string _contrasena, string _direccion, string _ciudad)
         {
             bool executed = false;
             int row;
@@ -57,11 +66,12 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "spUpdateCliente";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objSelectCmd.Parameters.Add("cli_id", MySqlDbType.Int32).Value = _idClient;
             objSelectCmd.Parameters.Add("cli_nombre", MySqlDbType.VarString).Value = _nombre;
             objSelectCmd.Parameters.Add("cli_correo", MySqlDbType.VarString).Value = _correo;
-            objSelectCmd.Parameters.Add("cli_contraseña", MySqlDbType.VarString).Value = _contraseña;
-            objSelectCmd.Parameters.Add("cli_direccion", MySqlDbType.Int32).Value = _direccion;
-            objSelectCmd.Parameters.Add("cli_ciudad", MySqlDbType.Int32).Value = _ciudad;
+            objSelectCmd.Parameters.Add("cli_contrasena", MySqlDbType.Text).Value = _contrasena;
+            objSelectCmd.Parameters.Add("cli_direccion", MySqlDbType.VarString).Value = _direccion;
+            objSelectCmd.Parameters.Add("cli_ciudad", MySqlDbType.VarString).Value = _ciudad;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
@@ -77,7 +87,9 @@ namespace Data
             objPer.closeConnection();
             return executed;
         }
-        public bool deleteCliente(int _idRie)
+
+        //Metodo para borrar un Cliente
+        public bool deleteCliente(int _idClient)
         {
             bool executed = false;
             int row;
@@ -86,7 +98,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procDeleteClient";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("Cli_id", MySqlDbType.Int32).Value = _idCategory;
+            objSelectCmd.Parameters.Add("cli_id", MySqlDbType.Int32).Value = _idClient;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
