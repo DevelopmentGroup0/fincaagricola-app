@@ -12,7 +12,8 @@
 <body>
     <form id="form1" runat="server">
     <%--Aqui va lo que se repite en los demas formularios--%>
-    <a href="Inicio.aspx">Inicio</a>
+    <a href="Indeex.aspx">Inicio</a>
+    <a href="WFFarm.aspx">Finca</a>
     <a href="#">Cerrar sesion</a>
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
