@@ -53,8 +53,8 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procInsertFinca";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("fin_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("fin_ubicacion", MySqlDbType.VarString).Value = _ubicacion;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_ubicacion", MySqlDbType.VarString).Value = _ubicacion;
 
             try
             {
@@ -83,9 +83,9 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procUpdateFinca"; 
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("fin_id", MySqlDbType.Int32).Value = _idFarm;
-            objSelectCmd.Parameters.Add("fin_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("fin_ubicacion", MySqlDbType.VarString).Value = _ubicacion;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idFarm;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_ubicacion", MySqlDbType.VarString).Value = _ubicacion;
 
             try
             {
@@ -114,7 +114,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procDeleteFinca"; 
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("fin_id", MySqlDbType.Int32).Value = _idFarm;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idFarm;
 
             try
             {
