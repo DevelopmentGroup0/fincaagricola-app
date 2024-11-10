@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -69,7 +71,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procUpdateUser";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("usu_id", MySqlDbType.VarString).Value = _idClient;
+            objSelectCmd.Parameters.Add("usu_id", MySqlDbType.VarString).Value = _idUser;
             objSelectCmd.Parameters.Add("usu_nombre", MySqlDbType.VarString).Value = _nombre;
             objSelectCmd.Parameters.Add("usu_correo", MySqlDbType.DateTime).Value = _correo;
             objSelectCmd.Parameters.Add("usu_contrasena", MySqlDbType.DateTime).Value = _contrasena;
@@ -123,5 +125,4 @@ namespace Data
 
         }
     }
-}
 }
