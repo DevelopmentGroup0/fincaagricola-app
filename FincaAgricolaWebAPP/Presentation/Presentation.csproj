@@ -68,6 +68,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />
     <Content Include="WFFarm.aspx" />
+    <Content Include="WFProducts.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Index.aspx.cs">
@@ -98,6 +99,13 @@
     </Compile>
     <Compile Include="WFFarm.aspx.designer.cs">
       <DependentUpon>WFFarm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFProducts.aspx.cs">
+      <DependentUpon>WFProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFProducts.aspx.designer.cs">
+      <DependentUpon>WFProducts.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
