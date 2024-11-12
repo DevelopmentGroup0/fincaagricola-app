@@ -14,6 +14,7 @@
     <%--Aqui va lo que se repite en los demas formularios--%>
     <a href="Indeex.aspx">Inicio</a>
     <a href="WFFarm.aspx">Finca</a>
+    <a href="WFSupplier.aspx">Proveedores</a>
     <a href="#">Cerrar sesion</a>
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

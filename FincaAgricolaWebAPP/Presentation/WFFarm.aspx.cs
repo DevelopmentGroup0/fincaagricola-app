@@ -23,7 +23,6 @@ namespace Presentation
             }
         }
 
-
         private void showFarm()
         {
             DataSet objData = new DataSet();
@@ -36,7 +35,6 @@ namespace Presentation
             TBName.Text = "";
             TBLocation.Text = "";
         }
-
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
@@ -77,13 +75,9 @@ namespace Presentation
             }
         }
 
-
         protected void GVFarm_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            // _idFarm = Convert.ToInt32(HFFarmId.Value);
             int _id = Convert.ToInt32(GVFarm.DataKeys[e.RowIndex].Values[0]);
-
-            Console.WriteLine(_id);
 
             executed = objFarm.deleteFarm(_id);
             if (executed)
