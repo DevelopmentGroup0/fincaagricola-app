@@ -54,8 +54,8 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procInsertCategory"; 
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("cat_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("cat_descripcion", MySqlDbType.VarString).Value = _description;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_description", MySqlDbType.VarString).Value = _description;
 
             try
             {
@@ -84,9 +84,9 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procUpdateCategory"; 
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("cat_id", MySqlDbType.Int32).Value = _idCategory;
-            objSelectCmd.Parameters.Add("cat_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("cat_descripcion", MySqlDbType.VarString).Value = _description;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idCategory;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_descripcion", MySqlDbType.VarString).Value = _description;
 
             try
             {
@@ -115,7 +115,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procDeleteCategory"; 
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("cat_id", MySqlDbType.Int32).Value = _idCategory;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idCategory;
 
             try
             {
