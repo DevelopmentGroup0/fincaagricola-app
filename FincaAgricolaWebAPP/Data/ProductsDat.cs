@@ -52,13 +52,13 @@ namespace Data
             objSelectCmd.CommandText = "procInsertProduct";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
-            objSelectCmd.Parameters.Add("pro_nombre", MySqlDbType.VarString).Value = _name;
-            objSelectCmd.Parameters.Add("pro_descripcion", MySqlDbType.VarString).Value = _description;
-            objSelectCmd.Parameters.Add("pro_cantidad", MySqlDbType.Int32).Value = _quantity;
-            objSelectCmd.Parameters.Add("p_precio", MySqlDbType.Double).Value = _price;
-            objSelectCmd.Parameters.Add("pro_img", MySqlDbType.Text).Value = _img;
-            objSelectCmd.Parameters.Add("tbl_proveedor_pro_id", MySqlDbType.Int32).Value = _fkProvider;
-            objSelectCmd.Parameters.Add("tbl_categoria_cat_id", MySqlDbType.Int32).Value = _fkCategory;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _name;
+            objSelectCmd.Parameters.Add("v_description", MySqlDbType.VarString).Value = _description;
+            objSelectCmd.Parameters.Add("v_cantidad", MySqlDbType.Int32).Value = _quantity;
+            objSelectCmd.Parameters.Add("v_precio", MySqlDbType.Double).Value = _price;
+            objSelectCmd.Parameters.Add("v_img", MySqlDbType.Text).Value = _img;
+            objSelectCmd.Parameters.Add("vfk_proveedor", MySqlDbType.Int32).Value = _fkProvider;
+            objSelectCmd.Parameters.Add("vfk_categorias", MySqlDbType.Int32).Value = _fkCategory;
 
             try
             {
@@ -88,14 +88,14 @@ namespace Data
             objSelectCmd.CommandText = "procUpdateProduct";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
-            objSelectCmd.Parameters.Add("pro_id", MySqlDbType.Int32).Value = _idProduct;
-            objSelectCmd.Parameters.Add("pro_nombre", MySqlDbType.VarString).Value = _name;
-            objSelectCmd.Parameters.Add("pro_descripcion", MySqlDbType.VarString).Value = _description;
-            objSelectCmd.Parameters.Add("pro_cantidad", MySqlDbType.Int32).Value = _quantity;
-            objSelectCmd.Parameters.Add("p_precio", MySqlDbType.Double).Value = _price;
-            objSelectCmd.Parameters.Add("pro_img", MySqlDbType.VarString).Value = _img;
-            objSelectCmd.Parameters.Add("tbl_proveedor_pro_id", MySqlDbType.Int32).Value = _fkProvider;
-            objSelectCmd.Parameters.Add("tbl_categoria_cat_id", MySqlDbType.Int32).Value = _fkCategory;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idProduct;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _name;
+            objSelectCmd.Parameters.Add("v_descripcion", MySqlDbType.VarString).Value = _description;
+            objSelectCmd.Parameters.Add("v_cantidad", MySqlDbType.Int32).Value = _quantity;
+            objSelectCmd.Parameters.Add("v_precio", MySqlDbType.Double).Value = _price;
+            objSelectCmd.Parameters.Add("v_img", MySqlDbType.Text).Value = _img;
+            objSelectCmd.Parameters.Add("vfk_proveedor", MySqlDbType.Int32).Value = _fkProvider;
+            objSelectCmd.Parameters.Add("vfk_categorias", MySqlDbType.Int32).Value = _fkCategory;
 
             try
             {
@@ -123,7 +123,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procDeleteProduct";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("pro_id", MySqlDbType.Int32).Value = _idProduct;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idProduct;
 
             try
             {

@@ -37,6 +37,10 @@
                           Categoría de Productos
                       </span>
                   </a>
+                    <a href="WFProducts.aspx">
+                      <span class="material-icons-sharp">Productos
+                      </span>
+                    </a>
                   <a href="#">
                       <span class="material-icons-sharp">
                           <h3>Logout</h3>
