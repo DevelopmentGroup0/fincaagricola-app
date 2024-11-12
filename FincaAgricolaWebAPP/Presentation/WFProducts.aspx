@@ -36,15 +36,18 @@
     <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
     <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" Style="height: 26px" OnClick="BtnUpdate_Click" />
     <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
-    <asp:GridView ID="GVPriducts" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GVPriducts_SelectedIndexChanged">
+    <asp:GridView ID="GVPriducts" runat="server" DataKeyNames="producto_id" AutoGenerateColumns="False" OnSelectedIndexChanged="GVPriducts_SelectedIndexChanged" OnRowDeleting="GVProduct_RowDeleting">
         <Columns>
-            <asp:BoundField DataField="pro_id" HeaderText="Id" />
+            <asp:BoundField DataField="producto_id" HeaderText="Id" />
             <asp:BoundField DataField="pro_nombre" HeaderText="Nombre" />
             <asp:BoundField DataField="pro_descripcion" HeaderText="Descripción" />
             <asp:BoundField DataField="pro_cantidad" HeaderText="Cantidad (Unds)" />
             <asp:BoundField DataField="pro_precio" HeaderText="Precio" />
-            <asp:BoundField DataField="tbl_proveedor_pro_id" HeaderText="Proveedor" />
-            <asp:BoundField DataField="tbl_categoria_cat_id" HeaderText="Categoría" />
+            <asp:BoundField DataField="pro_img" HeaderText="LinkFoto" />
+            <asp:BoundField DataField="tbl_proveedor_pro_id" HeaderText="Proveedor ID" />
+            <asp:BoundField DataField="proveedor_nombre" HeaderText="Nombre Proveedor" />
+            <asp:BoundField DataField="tbl_categoria_cat_id" HeaderText="Categoría Id" />
+            <asp:BoundField DataField="cat_nombre" HeaderText="Nombre Categoría" />
             <asp:CommandField ShowSelectButton="true" />
             <asp:CommandField ShowDeleteButton="True" />
         </Columns>

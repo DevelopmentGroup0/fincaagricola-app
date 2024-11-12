@@ -27,8 +27,8 @@ namespace Presentation
             if (!Page.IsPostBack)
             {
                 showProducts();
-                showCategoriesDDL();
                 showSuppliersDDL();
+                showCategoriesDDL();
             }
         }
 
@@ -41,18 +41,18 @@ namespace Presentation
 
         private void showSuppliersDDL()
         {
-            DDLCategory.DataSource = objSupplier.showSupplierDDL();
-            DDLCategory.DataValueField = "pro_id";
-            DDLCategory.DataTextField = "Name";
-            DDLCategory.DataBind();
-            DDLCategory.Items.Insert(0, "Seleccione");
+            DDLSupplier.DataSource = objSupplier.showSupplierDDL();
+            DDLSupplier.DataValueField = "pro_id";
+            DDLSupplier.DataTextField = "nombreProveedor";
+            DDLSupplier.DataBind();
+            DDLSupplier.Items.Insert(0, "Seleccione");
         }
 
         private void showCategoriesDDL()
         {
             DDLCategory.DataSource = objCategory.showCategoryDDL();
             DDLCategory.DataValueField = "cat_id";
-            DDLCategory.DataTextField = "Name";
+            DDLCategory.DataTextField = "nombre";
             DDLCategory.DataBind();
             DDLCategory.Items.Insert(0, "Seleccione");
         }
@@ -76,7 +76,7 @@ namespace Presentation
             TBPrecio.Text = GVPriducts.SelectedRow.Cells[4].Text;
             TBImg.Text = GVPriducts.SelectedRow.Cells[5].Text;
             DDLSupplier.SelectedValue = GVPriducts.SelectedRow.Cells[6].Text;
-            DDLCategory.SelectedValue = GVPriducts.SelectedRow.Cells[7].Text;
+            DDLCategory.SelectedValue = GVPriducts.SelectedRow.Cells[8].Text;
         }
 
         protected void BtnSave_Click(object sender, EventArgs e)
@@ -126,6 +126,25 @@ namespace Presentation
             {
                 LblMsj.Text = "El Producto no se actualizó";
             }
+        }
+
+        protected void GVProduct_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int _idProduct = Convert.ToInt32(GVPriducts.DataKeys[e.RowIndex].Values[0]);
+
+            executed = objProducts.deleteProducts(_idProduct);
+            if (executed)
+            {
+                LblMsj.Text = "Producto eliminado exitosamente";
+                GVPriducts.EditIndex = -1;
+                clear();
+                showProducts();
+            }
+            else
+            {
+                LblMsj.Text = "Producto no eliminado";
+            }
+
         }
     }
 }
