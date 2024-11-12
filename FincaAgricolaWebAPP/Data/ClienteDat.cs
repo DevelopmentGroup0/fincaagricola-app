@@ -48,13 +48,13 @@ namespace Data
             int row;
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "spInsertCliente";
+            objSelectCmd.CommandText = "procInsertClient";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("cli_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("cli_correo", MySqlDbType.VarString).Value = _correo;
-            objSelectCmd.Parameters.Add("cli_contrasena", MySqlDbType.VarString).Value = _contrasena;
-            objSelectCmd.Parameters.Add("cli_direccion", MySqlDbType.VarString).Value = _direccion;
-            objSelectCmd.Parameters.Add("cli_ciudad", MySqlDbType.VarString).Value = _ciudad;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_correo", MySqlDbType.VarString).Value = _correo;
+            objSelectCmd.Parameters.Add("v_contrasena", MySqlDbType.VarString).Value = _contrasena;
+            objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.VarString).Value = _direccion;
+            objSelectCmd.Parameters.Add("v_ciudad", MySqlDbType.VarString).Value = _ciudad;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
@@ -78,14 +78,14 @@ namespace Data
             int row;
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "spUpdateCliente";
+            objSelectCmd.CommandText = "procUpdateClient";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("cli_id", MySqlDbType.Int32).Value = _idClient;
-            objSelectCmd.Parameters.Add("cli_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("cli_correo", MySqlDbType.VarString).Value = _correo;
-            objSelectCmd.Parameters.Add("cli_contrasena", MySqlDbType.Text).Value = _contrasena;
-            objSelectCmd.Parameters.Add("cli_direccion", MySqlDbType.VarString).Value = _direccion;
-            objSelectCmd.Parameters.Add("cli_ciudad", MySqlDbType.VarString).Value = _ciudad;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idClient;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_correo", MySqlDbType.VarString).Value = _correo;
+            objSelectCmd.Parameters.Add("v_contrasena", MySqlDbType.Text).Value = _contrasena;
+            objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.VarString).Value = _direccion;
+            objSelectCmd.Parameters.Add("v_ciudad", MySqlDbType.VarString).Value = _ciudad;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
@@ -112,7 +112,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procDeleteClient";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("cli_id", MySqlDbType.Int32).Value = _idClient;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idClient;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
