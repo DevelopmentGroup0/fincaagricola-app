@@ -21,8 +21,8 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procInsertWeather";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("clim_temperatura", MySqlDbType.Float).Value = _temperatura;
-            objSelectCmd.Parameters.Add("clim_humedad", MySqlDbType.VarString).Value = _humedad;
+            objSelectCmd.Parameters.Add("v_temperatura", MySqlDbType.Float).Value = _temperatura;
+            objSelectCmd.Parameters.Add("v_humedad", MySqlDbType.VarString).Value = _humedad;
 
             try
             {
@@ -83,9 +83,9 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procUpdateWeather";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("clim_id", MySqlDbType.Int32).Value = _idWeather;
-            objSelectCmd.Parameters.Add("clim_temperatura", MySqlDbType.Float).Value = _temperatura;
-            objSelectCmd.Parameters.Add("clim_humedad", MySqlDbType.VarString).Value = _humedad;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idWeather;
+            objSelectCmd.Parameters.Add("v_temperatura", MySqlDbType.Float).Value = _temperatura;
+            objSelectCmd.Parameters.Add("v_humedad", MySqlDbType.VarString).Value = _humedad;
 
             try
             {
@@ -113,7 +113,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procDeleteWeather";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("clim_id", MySqlDbType.Int32).Value = _idWeather;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idWeather;
 
             try
             {
