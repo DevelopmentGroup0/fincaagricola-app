@@ -11,45 +11,44 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-
-    <form id="form1" runat="server">
-    <%--Aqui va lo que se repite en los demas formularios--%>
-        <div class="container">
-            <aside>
-                <div class="toggle">
-                    <div class="logo">
-                        <img src="images/logo.png" alt="" />
-                        <h2>Admin</h2>
-                    </div>
-                </div>
-                <div class="sidebar">
-                    <a href="Index.aspx">
-                        <span class="material-icons-sharp">
-                            Inicio
-                        </span>
-                    </a>
-                    <a href="WFFarm.aspx">
-                        <span class="material-icons-sharp">
-                            Finca
-                        </span>
-                    </a>
-                    <a href="WFCategory.aspx">
-                        <span class="material-icons-sharp">
-                            Categoría de Productos
-                        </span>
-                    </a>
-                    <a href="#">
-                        <span class="material-icons-sharp">
-                            <h3>Logout</h3>
-                        </span>
-                    </a>
-                </div>
-            </aside>
-            <div>
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
-            </div>
-        </div>
+  <form id="form1" runat="server">
+  <%--Aqui va lo que se repite en los demas formularios--%>
+      <div class="container">
+          <aside>
+              <div class="toggle">
+                  <div class="logo">
+                      <img src="images/logo.png" alt="" />
+                      <h2>Admin</h2>
+                  </div>
+              </div>
+              <div class="sidebar">
+                  <a href="Index.aspx">
+                      <span class="material-icons-sharp">
+                          Inicio
+                      </span>
+                  </a>
+                  <a href="WFFarm.aspx">
+                      <span class="material-icons-sharp">
+                          Finca
+                      </span>
+                  </a>
+                  <a href="WFCategory.aspx">
+                      <span class="material-icons-sharp">
+                          Categoría de Productos
+                      </span>
+                  </a>
+                  <a href="#">
+                      <span class="material-icons-sharp">
+                          <h3>Logout</h3>
+                      </span>
+                  </a>
+              </div>
+          </aside>
+          <div>
+              <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+              </asp:ContentPlaceHolder>
+          </div>
+      </div>
 </form>
 </body>
 </html>

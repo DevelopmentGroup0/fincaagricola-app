@@ -21,9 +21,9 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procInsertProveedor";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("pro_nit", MySqlDbType.Int32).Value = _nit;
-            objSelectCmd.Parameters.Add("pro_nombre", MySqlDbType.VarString).Value = _name;
-            objSelectCmd.Parameters.Add("tbl_finca_fin_id", MySqlDbType.Int32).Value = _fkFincaId;
+            objSelectCmd.Parameters.Add("v_nit", MySqlDbType.Int32).Value = _nit;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _name;
+            objSelectCmd.Parameters.Add("v_finca_id", MySqlDbType.Int32).Value = _fkFincaId;
 
             try
             {
@@ -83,10 +83,10 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procUpdateProveedor";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("pro_id", MySqlDbType.Int32).Value = _idSupp;
-            objSelectCmd.Parameters.Add("pro_nit", MySqlDbType.VarString).Value = _nit;
-            objSelectCmd.Parameters.Add("pro_nombre", MySqlDbType.VarString).Value = _name;
-            objSelectCmd.Parameters.Add("tbl_finca_fin_id", MySqlDbType.VarString).Value = _fkFincaId;
+            objSelectCmd.Parameters.Add("v_proveedor_id", MySqlDbType.Int32).Value = _idSupp;
+            objSelectCmd.Parameters.Add("v_nit", MySqlDbType.VarString).Value = _nit;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _name;
+            objSelectCmd.Parameters.Add("v_finca_id", MySqlDbType.VarString).Value = _fkFincaId;
 
             try
             {
@@ -115,7 +115,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procDeleteProveedor";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("pro_id", MySqlDbType.Int32).Value = _idSupp;
+            objSelectCmd.Parameters.Add("v_proveedor_id", MySqlDbType.Int32).Value = _idSupp;
 
             try
             {
