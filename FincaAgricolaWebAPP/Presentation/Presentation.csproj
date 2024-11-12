@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="WFProducts.aspx.designer.cs">
       <DependentUpon>WFProducts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WFSupplier.aspx.cs">
       <DependentUpon>WFSupplier.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
