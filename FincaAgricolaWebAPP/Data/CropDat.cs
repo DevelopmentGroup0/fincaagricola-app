@@ -19,7 +19,7 @@ namespace Data
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procSelectCrops";
+            objSelectCmd.CommandText = "procSelectCrop";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
             objAdapter.SelectCommand = objSelectCmd;
             objAdapter.Fill(objData);
@@ -51,11 +51,11 @@ namespace Data
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procInsertCrops";
+            objSelectCmd.CommandText = "procInsertCrop";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("cul_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("cul_descripcion", MySqlDbType.VarString).Value = _descripcion;
-            objSelectCmd.Parameters.Add("tbl_parcela_par_id", MySqlDbType.Int32).Value = _fkParcelaId;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_description", MySqlDbType.VarString).Value = _descripcion;
+            objSelectCmd.Parameters.Add("v_parcela_id", MySqlDbType.Int32).Value = _fkParcelaId;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
@@ -81,12 +81,12 @@ namespace Data
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procUpdateCrops";
+            objSelectCmd.CommandText = "procUpdateCrop";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("cul_id", MySqlDbType.Int32).Value = _idCultivo;
-            objSelectCmd.Parameters.Add("cul_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("cul_descripcion", MySqlDbType.VarString).Value = _descripcion;
-            objSelectCmd.Parameters.Add("tbl_parcela_par_id", MySqlDbType.Int32).Value = _fkParcelaId;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idCultivo;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_descripcion", MySqlDbType.VarString).Value = _descripcion;
+            objSelectCmd.Parameters.Add("v_parcela_id", MySqlDbType.Int32).Value = _fkParcelaId;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
@@ -114,7 +114,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procDeleteCrop";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("cul_id", MySqlDbType.Int32).Value = _idCultivo;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idCultivo;
 
             try
             {

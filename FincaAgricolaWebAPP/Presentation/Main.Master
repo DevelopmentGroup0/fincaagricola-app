@@ -54,9 +54,13 @@
                  </span>
                 </a>
                     <a href="WFParcel.aspx">
- <span class="material-icons-sharp">Parcela
- </span>
-</a>
+                <span class="material-icons-sharp">Parcela
+                </span>
+                </a>
+                                      <a href="WFCrop.aspx">
+                 <span class="material-icons-sharp">Cultivo
+                 </span>
+                  </a>
                   <a href="#">
                       <span class="material-icons-sharp">
                           <h3>Logout</h3>
