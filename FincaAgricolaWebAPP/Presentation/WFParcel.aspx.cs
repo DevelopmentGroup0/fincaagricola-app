@@ -122,14 +122,14 @@ namespace Presentation
             executed = objPar.deleteParcel(_idParcel);
             if (executed)
             {
-                LblMsj.Text = "La parcela se eliminado exitosamente";
+                LblMsj.Text = "La parcela se elimino exitosamente";
                 GVParcel.EditIndex = -1;
                 clear();
                 showParcel();
             }
             else
             {
-                LblMsj.Text = "Prcela no eliminado";
+                LblMsj.Text = "Parcela no eliminada";
             }
         }
     }

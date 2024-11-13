@@ -7,12 +7,12 @@
             <%--Id--%>
     <asp:HiddenField ID="HFParcelId" runat="server" />
 
-    <%--Temperatura--%>
+    <%--Dimensiones--%>
     <asp:Label ID="Label1" runat="server" Text="Ingrese las dimensiones"></asp:Label>
     <asp:TextBox ID="TBDimensiones" runat="server"></asp:TextBox>
     <br />
 
-    <%--humedad--%>
+    <%--Ubicación--%>
     <asp:Label ID="Label2" runat="server" Text="Ingrese la ubicación"></asp:Label>
     <asp:TextBox ID="TBUbicacion" runat="server"></asp:TextBox>
     <br />
@@ -29,7 +29,7 @@
     <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
     <br />
 
-    <%--Lista de Climas--%>
+    <%--Lista de Parcelas--%>
 <asp:GridView ID="GVParcel" runat="server" DataKeyNames="parcela_id" AutoGenerateColumns="false" OnSelectedIndexChanged="GVParcel_SelectedIndexChanged" OnRowDeleting="GVParcel_RowDeleting">
         <Columns>
             <asp:BoundField DataField="parcela_id" HeaderText="Id" />
