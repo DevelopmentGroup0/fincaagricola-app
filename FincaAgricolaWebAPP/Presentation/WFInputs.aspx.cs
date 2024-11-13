@@ -1,4 +1,5 @@
-﻿using Logic;
+﻿
+using Logic;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +8,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
-
 namespace Presentation
 {
     public partial class WFInputs : System.Web.UI.Page
@@ -15,8 +15,7 @@ namespace Presentation
         InputsLog objInputs = new InputsLog();
         CropLog objCrop = new CropLog();
         ParcelLog objParcel = new ParcelLog();
-
-        private int _idInputs,_fkCrop, _fkParcel;
+        private int _idInputs, _fkCrop, _fkParcel;
         private string _nombre, _Tipo, _cantidad;
         private bool executed = false;
         protected void Page_Load(object sender, EventArgs e)
@@ -28,7 +27,6 @@ namespace Presentation
                 showParcelDDL();
             }
         }
-
         private void showInputs()
         {
             DataSet objData = new DataSet();
@@ -36,8 +34,6 @@ namespace Presentation
             GVInputs.DataSource = objData;
             GVInputs.DataBind();
         }
-
-
         private void showCropDDL()
         {
             DDLCrops.DataSource = objCrop.showCropsDDL();
@@ -46,7 +42,6 @@ namespace Presentation
             DDLCrops.DataBind();
             DDLCrops.Items.Insert(0, "Seleccione");
         }
-
         private void showParcelDDL()
         {
             DDLParcela.DataSource = objParcel.showParcelDDL();
@@ -56,8 +51,6 @@ namespace Presentation
             DDLParcela.Items.Insert(0, "Seleccione");
         }
 
-       
-
         private void clear()
         {
             TBName.Text = "";
@@ -66,7 +59,6 @@ namespace Presentation
             DDLCrops.SelectedIndex = 0;
             DDLParcela.SelectedIndex = 0;
         }
-
         protected void GVInputs_SelectedIndexChanged(object sender, EventArgs e)
         {
             HFInputsId.Value = GVInputs.SelectedRow.Cells[0].Text;
@@ -83,9 +75,7 @@ namespace Presentation
             _cantidad = TBQuantity.Text;
             _fkCrop = Convert.ToInt32(DDLCrops.SelectedValue);
             _fkParcel = Convert.ToInt32(DDLParcela.SelectedValue);
-
-            executed = objInputs.saveImputs(_nombre, _Tipo, _cantidad,  _fkCrop, _fkParcel);
-
+            executed = objInputs.saveImputs(_nombre, _Tipo, _cantidad, _fkCrop, _fkParcel);
             if (executed)
             {
                 LblMsj.Text = "Insumo guardado exitosamente";
@@ -97,7 +87,6 @@ namespace Presentation
                 LblMsj.Text = "Insumo no guardado";
             }
         }
-
         protected void BtnUpdate_Click(object sender, EventArgs e)
         {
             _idInputs = Convert.ToInt32(HFInputsId.Value);
@@ -106,9 +95,7 @@ namespace Presentation
             _cantidad = TBQuantity.Text;
             _fkCrop = Convert.ToInt32(DDLCrops.SelectedValue);
             _fkParcel = Convert.ToInt32(DDLParcela.SelectedValue);
-
             executed = objInputs.updateInputs(_idInputs, _nombre, _Tipo, _cantidad, _fkCrop, _fkParcel);
-
             if (executed)
             {
                 LblMsj.Text = "El Insumo se actualizó exitosamente";
@@ -119,13 +106,10 @@ namespace Presentation
             {
                 LblMsj.Text = "El Insumo no se actualizó";
             }
-
-
         }
         protected void GVInputs_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int _idInputs = Convert.ToInt32(GVInputs.DataKeys[e.RowIndex].Values[0]);
-
             executed = objInputs.deleteInputs(_idInputs);
             if (executed)
             {
@@ -138,11 +122,6 @@ namespace Presentation
             {
                 LblMsj.Text = "Insumo no eliminado";
             }
-
         }
-
-
-
-
     }
 }
