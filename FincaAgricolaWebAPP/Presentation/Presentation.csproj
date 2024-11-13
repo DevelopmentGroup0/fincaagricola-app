@@ -104,9 +104,8 @@
       <DependentUpon>WFCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WFCategory..aspx.designer.cs">
+    <Compile Include="WFCategory.aspx.designer.cs">
       <DependentUpon>WFCategory.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WFClient.aspx.cs">
       <DependentUpon>WFClient.aspx</DependentUpon>
