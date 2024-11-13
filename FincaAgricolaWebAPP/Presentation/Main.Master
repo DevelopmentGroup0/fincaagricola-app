@@ -45,6 +45,10 @@
                       <span class="material-icons-sharp">Climas
                       </span>
                     </a>
+                  <a href="WFInputs.aspx">
+                      <span class="material-icons-sharp">Insumos
+                      </span>
+                  </a>
                   <a href="WFProducts.aspx">
                  <span class="material-icons-sharp">Productos
                  </span>
