@@ -49,6 +49,10 @@
                  <span class="material-icons-sharp">Productos
                  </span>
                 </a>
+                    <a href="WFParcel.aspx">
+ <span class="material-icons-sharp">Parcela
+ </span>
+</a>
                   <a href="#">
                       <span class="material-icons-sharp">
                           <h3>Logout</h3>

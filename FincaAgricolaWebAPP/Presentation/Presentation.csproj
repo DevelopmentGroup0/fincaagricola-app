@@ -69,6 +69,7 @@
     <Content Include="Web.config" />
     <Content Include="WFCategory.aspx" />
     <Content Include="WFFarm.aspx" />
+    <Content Include="WFParcel.aspx" />
     <Content Include="WFProducts.aspx" />
     <Content Include="WFSupplier.aspx" />
     <Content Include="WFWeather.aspx" />
@@ -109,6 +110,13 @@
     </Compile>
     <Compile Include="WFFarm.aspx.designer.cs">
       <DependentUpon>WFFarm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFParcel.aspx.cs">
+      <DependentUpon>WFParcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFParcel.aspx.designer.cs">
+      <DependentUpon>WFParcel.aspx</DependentUpon>
     </Compile>
     <Compile Include="WFProducts.aspx.cs">
       <DependentUpon>WFProducts.aspx</DependentUpon>

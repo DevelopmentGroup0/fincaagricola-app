@@ -52,10 +52,10 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procInsertParcela";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("par_dimenciones", MySqlDbType.Int32).Value = _dimensiones;
-            objSelectCmd.Parameters.Add("par_ubicacion", MySqlDbType.VarString).Value = _ubicacion;
-            objSelectCmd.Parameters.Add("tbl_finca_fin_id", MySqlDbType.Int32).Value = _fkfinca;
-            objSelectCmd.Parameters.Add("par_tbl_clima_id", MySqlDbType.Int32).Value = _fkclima;
+            objSelectCmd.Parameters.Add("v_dimensiones", MySqlDbType.Int32).Value = _dimensiones;
+            objSelectCmd.Parameters.Add("v_ubicacion", MySqlDbType.VarString).Value = _ubicacion;
+            objSelectCmd.Parameters.Add("vfk_finca", MySqlDbType.Int32).Value = _fkfinca;
+            objSelectCmd.Parameters.Add("vfk_clima", MySqlDbType.Int32).Value = _fkclima;
 
             try
             {
@@ -84,11 +84,11 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procUpdateParcela"; 
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("par_id", MySqlDbType.Int32).Value = _idParcela;
-            objSelectCmd.Parameters.Add("par_dimensiones", MySqlDbType.Int32).Value = _dimensiones;
-            objSelectCmd.Parameters.Add("par_ubicacion", MySqlDbType.VarString).Value = _ubicacion;
-            objSelectCmd.Parameters.Add("tbl_finca_fin_id", MySqlDbType.Int32).Value = _fkfinca;
-            objSelectCmd.Parameters.Add("tbl_clima_clim_id", MySqlDbType.Int32).Value = _fkclima;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idParcela;
+            objSelectCmd.Parameters.Add("v_dimensiones", MySqlDbType.Int32).Value = _dimensiones;
+            objSelectCmd.Parameters.Add("v_ubicacion", MySqlDbType.VarString).Value = _ubicacion;
+            objSelectCmd.Parameters.Add("vfk_finca", MySqlDbType.Int32).Value = _fkfinca;
+            objSelectCmd.Parameters.Add("vfk_clima", MySqlDbType.Int32).Value = _fkclima;
 
             try
             {
@@ -117,7 +117,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procDeleteParcela"; 
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("par_id", MySqlDbType.Int32).Value = _idParcela;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idParcela;
 
             try
             {
