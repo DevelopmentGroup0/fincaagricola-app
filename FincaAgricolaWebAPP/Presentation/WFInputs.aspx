@@ -26,7 +26,6 @@
     <%--FkParcela--%>
     <asp:Label ID="Label6" runat="server" Text="Seleccione la parcela"></asp:Label>
     <asp:DropDownList ID="DDLParcela" runat="server"></asp:DropDownList>
-
     <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
     <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" OnClick="BtnUpdate_Click" />
     <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
