@@ -18,6 +18,7 @@ namespace Presentation
         private int _idParcel, _fkfinca, _fkclima;
         private int _dimenciones;
         private string _ubicacion;
+
         
         private bool executed = false;
         protected void Page_Load(object sender, EventArgs e)
@@ -59,7 +60,7 @@ namespace Presentation
         private void clear()
         {
             TBDimensiones.Text = "";
-            TBDimensiones.Text = "";
+            TBUbicacion.Text = "";
             DDLFarm.SelectedIndex = 0;
             DDLWeather.SelectedIndex = 0;
         }
