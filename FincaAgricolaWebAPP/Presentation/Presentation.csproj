@@ -68,6 +68,8 @@
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />
     <Content Include="WFCategory.aspx" />
+    <Content Include="WFClient.aspx" />
+    <Content Include="WFInputs.aspx" />
     <Content Include="WFCrop.aspx" />
     <Content Include="WFFarm.aspx" />
     <Content Include="WFParcel.aspx" />
@@ -102,8 +104,15 @@
       <DependentUpon>WFCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WFCategory.aspx.designer.cs">
+    <Compile Include="WFCategory.aspx.cs">
       <DependentUpon>WFCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFClient.aspx.designer.cs">
+      <DependentUpon>WFClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFInputs.aspx.designer.cs">
+      <DependentUpon>WFInputs.aspx</DependentUpon>
     </Compile>
     <Compile Include="WFCrop.aspx.cs">
       <DependentUpon>WFCrop.aspx</DependentUpon>
