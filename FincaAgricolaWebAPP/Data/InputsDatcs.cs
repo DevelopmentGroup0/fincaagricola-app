@@ -19,13 +19,28 @@ namespace Data
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procSelectInputs";
+            objSelectCmd.CommandText = "procSelectInput";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
             objAdapter.SelectCommand = objSelectCmd;
             objAdapter.Fill(objData);
             objPer.closeConnection();
             return objData;
         }
+        public DataSet showInputsDDL()
+        {
+            MySqlDataAdapter objAdapter = new MySqlDataAdapter();
+            DataSet objData = new DataSet();
+
+            MySqlCommand objSelectCmd = new MySqlCommand();
+            objSelectCmd.Connection = objPer.openConnection();
+            objSelectCmd.CommandText = "procSelectInputDDL";
+            objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objAdapter.SelectCommand = objSelectCmd;
+            objAdapter.Fill(objData);
+            objPer.closeConnection();
+            return objData;
+        }
+        
 
 
         //Metodo para guardar un Insumo
@@ -36,13 +51,13 @@ namespace Data
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procInsertInpunts";
+            objSelectCmd.CommandText = "procInsertInput";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("ins_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("ins_tipo", MySqlDbType.VarString).Value = _tipo;
-            objSelectCmd.Parameters.Add("ins_cantidad", MySqlDbType.VarString).Value = _cantidad;
-            objSelectCmd.Parameters.Add("tbl_cultivo_cul_id", MySqlDbType.Int32).Value = _fkCultivoId;
-            objSelectCmd.Parameters.Add("tbl_cultivo_tbl_parcela_par_id", MySqlDbType.Int32).Value = _fkParcelaId;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_tipo", MySqlDbType.VarString).Value = _tipo;
+            objSelectCmd.Parameters.Add("v_cantidad", MySqlDbType.VarString).Value = _cantidad;
+            objSelectCmd.Parameters.Add("vfk_cultivo", MySqlDbType.Int32).Value = _fkCultivoId;
+            objSelectCmd.Parameters.Add("vfk_parcela", MySqlDbType.Int32).Value = _fkParcelaId;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
@@ -68,14 +83,14 @@ namespace Data
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procUpdateInputs";
+            objSelectCmd.CommandText = "procUpdateInput";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("ins_id", MySqlDbType.Int32).Value = _idInputs;
-            objSelectCmd.Parameters.Add("ins_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("ins_tipo", MySqlDbType.VarString).Value = _tipo;
-            objSelectCmd.Parameters.Add("ins_cantidad", MySqlDbType.VarString).Value = _cantidad;
-            objSelectCmd.Parameters.Add("tbl_cultivo_cul_id", MySqlDbType.Int32).Value = _fkCultivoId;
-            objSelectCmd.Parameters.Add("tbl_cultivo_tbl_parcela_par_id", MySqlDbType.Int32).Value = _fkParcelaId;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idInputs;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_tipo", MySqlDbType.VarString).Value = _tipo;
+            objSelectCmd.Parameters.Add("v_cantidad", MySqlDbType.VarString).Value = _cantidad;
+            objSelectCmd.Parameters.Add("vfk_cultivo", MySqlDbType.Int32).Value = _fkCultivoId;
+            objSelectCmd.Parameters.Add("vfk_parcela", MySqlDbType.Int32).Value = _fkParcelaId;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
@@ -101,9 +116,9 @@ namespace Data
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procDeleteInputs";
+            objSelectCmd.CommandText = "procDeleteInput";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("ins_id", MySqlDbType.Int32).Value = _idInputs;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idInputs;
 
             try
             {
