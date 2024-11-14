@@ -38,7 +38,7 @@
                       </span>
                   </a>
                   <a href="WFSupplier.aspx">
-                      <span class="material-icons-sharp">Categoría de Productos
+                      <span class="material-icons-sharp">Proveedores
                       </span>
                   </a>
                   <a href="WFClient.aspx">
@@ -49,7 +49,7 @@
                       <span class="material-icons-sharp">Climas
                       </span>
                     </a>
-                  <a href="WFlnputs.aspx">
+                  <a href="WFInputs.aspx">
                       <span class="material-icons-sharp">Insumos
                       </span>
                   </a>
