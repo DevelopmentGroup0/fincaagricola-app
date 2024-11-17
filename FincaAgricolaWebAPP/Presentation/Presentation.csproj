@@ -74,6 +74,7 @@
     <Content Include="WFInputs.aspx" />
     <Content Include="WFParcel.aspx" />
     <Content Include="WFProducts.aspx" />
+    <Content Include="WFSale.aspx" />
     <Content Include="WFSupplier.aspx" />
     <Content Include="WFWeather.aspx" />
   </ItemGroup>
@@ -148,6 +149,13 @@
     </Compile>
     <Compile Include="WFProducts.aspx.designer.cs">
       <DependentUpon>WFProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFSale.aspx.cs">
+      <DependentUpon>WFSale.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFSale.aspx.designer.cs">
+      <DependentUpon>WFSale.aspx</DependentUpon>
     </Compile>
     <Compile Include="WFSupplier.aspx.cs">
       <DependentUpon>WFSupplier.aspx</DependentUpon>
