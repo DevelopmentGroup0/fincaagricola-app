@@ -32,6 +32,10 @@
                           Finca
                       </span>
                   </a>
+                  <a href="WFSale.aspx">
+                      <span class="material-icons-sharp">Ventas
+                      </span>
+                  </a>
                   <a href="WFCategory.aspx">
                       <span class="material-icons-sharp">
                           Categoría de Productos
