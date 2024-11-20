@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="WFSupplier.aspx.cs" Inherits="Presentation.WFSupplier" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -13,17 +14,16 @@
     <%--Nombre--%>
     <div class="form-floating">
         <asp:TextBox ID="TBName" runat="server" class="form-control" placeholder="Ingresa un NIT"></asp:TextBox>
-        <Label>Nombre de Proveedor</Label>
+        <label>Nombre de Proveedor</label>
     </div>
     <%--DDL FInca--%>
-    <asp:Label ID="Label6" runat="server" Text="Seleccione una Finca"></asp:Label>
-    <asp:DropDownList ID="DDLFarm" runat="server"></asp:DropDownList>
-    <br />
+    <div class="form-floating">
+        <asp:DropDownList ID="DDLFarm" runat="server" class="form-select" aria-label="Floating label select example"></asp:DropDownList>
+    </div>
     <asp:Button ID="BtnSave" runat="server" Text="Guardar" class="btn btn-success" OnClick="BtnSave_Click" />
     <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" class="btn btn-primary" OnClick="BtnUpdate_Click" />
     <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
     <br />
-
     <asp:GridView ID="GVSupplier" runat="server" DataKeyNames="pro_id" AutoGenerateColumns="False" CellPadding="4" OnSelectedIndexChanged="GVSupplier_SelectedIndexChanged" OnRowDeleting="GVSupplier_RowDeleting">
         <Columns>
             <asp:BoundField DataField="pro_id" HeaderText="id" />

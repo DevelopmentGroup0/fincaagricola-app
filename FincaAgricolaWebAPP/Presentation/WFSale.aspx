@@ -12,13 +12,13 @@
         <asp:Calendar ID="Calendar" runat="server" Height="55px" Width="353px"></asp:Calendar>
         <br />
         <%--fKProductoId--%>
-        <asp:Label ID="Label7" runat="server" Text="Productos"></asp:Label>
-        <asp:DropDownList ID="DDLProcucts" runat="server"></asp:DropDownList>
-        <br />
+        <div class="form-floating">
+        <asp:DropDownList ID="DDLProcucts" runat="server" class="form-select" aria-label="Floating label select example"></asp:DropDownList>
+        </div>
         <%--fKCliente--%>
-        <asp:Label ID="Label6" runat="server" Text="Cliente"></asp:Label>
-        <asp:DropDownList ID="DDLClients" runat="server"></asp:DropDownList>
-        <br />
+        <div class="form-floating">
+        <asp:DropDownList ID="DDLClients" runat="server" class="form-select" aria-label="Floating label select example"></asp:DropDownList>
+        </div>
         <%--Total--%>
         <asp:Label ID="Label2" runat="server" Text="Total"></asp:Label>
         <asp:TextBox ID="TBTotal" runat="server"></asp:TextBox>

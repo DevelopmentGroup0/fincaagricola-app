@@ -39,7 +39,7 @@ namespace Presentation
             DDLFarm.DataValueField = "fin_id";
             DDLFarm.DataTextField = "nombre";
             DDLFarm.DataBind();
-            DDLFarm.Items.Insert(0, "Seleccione");
+            DDLFarm.Items.Insert(0, "Seleccione una Finca");
         }
 
         private void clear()
