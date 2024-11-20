@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="WFInputs.aspx.cs" Inherits="Presentation.WFInputs" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -8,17 +9,21 @@
     <%--Id--%>
     <asp:HiddenField ID="HFInputsId" runat="server" />
     <%--Nombre--%>
-    <asp:Label ID="Label2" runat="server" Text="Ingrese el nombre"></asp:Label>
-    <asp:TextBox ID="TBName" runat="server"></asp:TextBox>
-    <br />
+    <div class="form-floating">
+        <asp:TextBox ID="TBName" runat="server" class="form-control" placeholder="Ingresa tu Nombre"></asp:TextBox>
+        <label>Nombre</label>
+    </div>
     <%--Tipo--%>
-    <asp:Label ID="Label3" runat="server" Text="Ingrese el tipo"></asp:Label>
-    <asp:TextBox ID="TBTipo" runat="server"></asp:TextBox>
-    <br />
+    <div class="form-floating">
+        <asp:TextBox ID="TBTipo" runat="server" class="form-control" placeholder="Ingrese el tipo"></asp:TextBox>
+        <label>Tipo</label>
+    </div>
+
     <%--Cantidad--%>
-    <asp:Label ID="Label4" runat="server" Text="Ingrese la cantidad"></asp:Label>
-    <asp:TextBox ID="TBQuantity" runat="server"></asp:TextBox>
-    <br />
+    <div class="form-floating">
+        <asp:TextBox ID="TBQuantity" runat="server" class="form-control" placeholder="Ingrese la cantidad"></asp:TextBox>
+        <label>Cantidad</label>
+    </div>
     <%--FkCultivo--%>
     <asp:Label ID="Label1" runat="server" Text="Seleccione el cultivo"></asp:Label>
     <asp:DropDownList ID="DDLCrops" runat="server"></asp:DropDownList>
@@ -26,8 +31,8 @@
     <%--FkParcela--%>
     <asp:Label ID="Label6" runat="server" Text="Seleccione la parcela"></asp:Label>
     <asp:DropDownList ID="DDLParcela" runat="server"></asp:DropDownList>
-    <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
-    <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" OnClick="BtnUpdate_Click" />
+    <asp:Button ID="BtnSave" runat="server" Text="Guardar" class="btn btn-success" OnClick="BtnSave_Click" />
+    <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" class="btn btn-primary" OnClick="BtnUpdate_Click" />
     <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
     <br />
     <div>
