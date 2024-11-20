@@ -167,6 +167,7 @@
     </Compile>
     <Compile Include="WFIrrigation.aspx.designer.cs">
       <DependentUpon>WFIrrigation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WFMachinery.aspx.cs">
       <DependentUpon>WFMachinery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

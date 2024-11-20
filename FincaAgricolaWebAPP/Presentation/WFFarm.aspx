@@ -6,15 +6,17 @@
     <%--Id--%>
     <asp:HiddenField ID="HFFarmId" runat="server" />
     <%--Nombre--%>
-    <asp:Label ID="Label1" runat="server" Text="Ingresa un nombre"></asp:Label>
-    <asp:TextBox ID="TBName" runat="server"></asp:TextBox>
-    <br />
+    <div class="form-floating">
+        <asp:TextBox runat="server" class="form-control" placeholder="Ingresa un Nombre" ID="TBName"></asp:TextBox>
+        <label>Ingresa un Nombre</label>
+    </div>
     <%--Ubicación--%>
-    <asp:Label ID="Label2" runat="server" Text="Ubicación"></asp:Label>
-    <asp:TextBox ID="TBLocation" runat="server"></asp:TextBox>
-    <br />
-    <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
-    <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" Style="height: 26px" OnClick="BtnUpdate_Click" />
+    <div class="form-floating">
+        <asp:TextBox ID="TBLocation" runat="server" class="form-control" placeholder="Ubicación"></asp:TextBox>
+        <Label >Ubicación</Label>
+    </div>
+    <asp:Button ID="BtnSave" runat="server" Text="Guardar" class="btn btn-primary" OnClick="BtnSave_Click" />
+    <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" class="btn btn-primary" OnClick="BtnUpdate_Click" />
     <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
     <%-- Agregando nombres en las columnas para identificarlos en el front--%>
     <asp:GridView ID="GVFarm" runat="server" AutoGenerateColumns="False" DataKeyNames="fin_id" OnSelectedIndexChanged="GVFarm_SelectedIndexChanged" OnRowDeleting="GVFarm_RowDeleting">
