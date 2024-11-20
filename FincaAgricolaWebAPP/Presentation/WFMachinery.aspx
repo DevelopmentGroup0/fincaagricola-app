@@ -18,19 +18,22 @@
         <asp:TextBox ID="TBDescription" runat="server" class="form-control" placeholder="Ingresa tu Descripcion"></asp:TextBox>
         <label>Descripcion</label>
     </div>
-
     <%--Clasisicacion--%>
     <div class="form-floating">
         <asp:TextBox ID="TBClassification" runat="server" class="form-control" placeholder="Ingrese la Clasificacion"></asp:TextBox>
         <label>Clasisicacion</label>
     </div>
     <%--FkCultivo--%>
-    <asp:Label ID="Label1" runat="server" Text="Seleccione el cultivo"></asp:Label>
-    <asp:DropDownList ID="DDLCrops" runat="server"></asp:DropDownList>
-    <br />
+    <div class="form-floating">
+        <asp:Label ID="Label1" runat="server" Text="Seleccione el cultivo"></asp:Label>
+        <asp:DropDownList ID="DDLCrops" runat="server" class="form-select" aria-label="Floating label select example"></asp:DropDownList>
+    </div>
     <%--FkParcela--%>
-    <asp:Label ID="Label6" runat="server" Text="Seleccione la parcela"></asp:Label>
-    <asp:DropDownList ID="DDLParcela" runat="server"></asp:DropDownList>
+    <div class="form-floating">
+        <asp:Label ID="Label6" runat="server" Text="Seleccione la parcela"></asp:Label>
+        <asp:DropDownList ID="DDLParcela" runat="server" class="form-select" aria-label="Floating label select example"></asp:DropDownList>
+    </div>
+
     <asp:Button ID="BtnSave" runat="server" Text="Guardar" class="btn btn-success" OnClick="BtnSave_Click" />
     <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" class="btn btn-primary" OnClick="BtnUpdate_Click" />
     <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>

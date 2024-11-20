@@ -31,15 +31,15 @@
     <Label>Añade una Imagen</Label>
     </div>
     <%--fKProveedor--%>
-    <asp:Label ID="Label6" runat="server" Text="Proveedor"></asp:Label>
-    <asp:DropDownList ID="DDLSupplier" runat="server"></asp:DropDownList>
-    <br />
+    <div class="form-floating">
+    <asp:DropDownList ID="DDLSupplier" runat="server" class="form-select"></asp:DropDownList>
+    </div>
     <%--fKCategoria--%>
-    <asp:Label ID="Label7" runat="server" Text="Categoría"></asp:Label>
-    <asp:DropDownList ID="DDLCategory" runat="server"></asp:DropDownList>
-    <br />
-    <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
-    <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" Style="height: 26px" OnClick="BtnUpdate_Click" />
+    <div class="form-floating">
+    <asp:DropDownList ID="DDLCategory" class="form-select" runat="server"></asp:DropDownList>
+    </div>
+    <asp:Button ID="BtnSave" runat="server" Text="Guardar" class="btn btn-success" OnClick="BtnSave_Click" />
+    <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" class="btn btn-primary" OnClick="BtnUpdate_Click" />
     <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
     <asp:GridView ID="GVPriducts" runat="server" DataKeyNames="producto_id" AutoGenerateColumns="False" OnSelectedIndexChanged="GVPriducts_SelectedIndexChanged" OnRowDeleting="GVProduct_RowDeleting">
         <Columns>
