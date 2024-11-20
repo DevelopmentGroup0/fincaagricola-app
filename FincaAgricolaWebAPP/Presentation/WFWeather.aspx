@@ -8,16 +8,19 @@
         <asp:HiddenField ID="HFWhatherId" runat="server" />
 
         <%--Temperatura--%>
-        <asp:Label ID="Label1" runat="server" Text="Ingrese la temperatura"></asp:Label>
-        <asp:TextBox ID="TBTemperatra" runat="server"></asp:TextBox>
-        <br />
+        <div class="form-floating">
+        <asp:TextBox runat="server" class="form-control" placeholder="Ingresa una Temperatura" ID="TBTemperatra"></asp:TextBox>
+        <Label>Ingrese la temperatura</Label>
+        </div>
 
         <%--humedad--%>
-        <asp:Label ID="Label2" runat="server" Text="Ingrese la humedad"></asp:Label>
-        <asp:TextBox ID="TBHumedad" runat="server"></asp:TextBox>
-        <br />
-        <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
-        <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" OnClick="BtnUpdate_Click" />
+        <div class="form-floating">
+        <asp:TextBox runat="server" class="form-control" placeholder="Ingresa una Humedad" ID="TBHumedad"></asp:TextBox>
+        <Label  runat="server">Ingrese la humedad</Label>
+        </div>
+
+        <asp:Button ID="BtnSave" runat="server" Text="Guardar" class="btn btn-success" OnClick="BtnSave_Click" />
+        <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" class="btn btn-primary" OnClick="BtnUpdate_Click" />
         <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
         <br />
         
