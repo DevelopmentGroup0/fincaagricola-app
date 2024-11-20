@@ -58,6 +58,10 @@
                         <span class="material-icons-sharp">Insumos
                         </span>
                     </a>
+                    <a href="WFMachinery.aspx">
+                        <span class="material-icons-sharp">Maquinaria
+                        </span>
+                    </a>
                     <a href="WFProducts.aspx">
                         <span class="material-icons-sharp">Productos
                         </span>

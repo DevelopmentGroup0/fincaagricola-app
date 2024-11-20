@@ -26,6 +26,21 @@ namespace Data
             return objData;
         }
 
+        public DataSet showMaquinariaDDL()
+        {
+            MySqlDataAdapter objAdapter = new MySqlDataAdapter();
+            DataSet objData = new DataSet();
+
+            MySqlCommand objSelectCmd = new MySqlCommand();
+            objSelectCmd.Connection = objPer.openConnection();
+            objSelectCmd.CommandText = "procSelectMaquinariaDDL";
+            objSelectCmd.CommandType = CommandType.StoredProcedure;
+            objAdapter.SelectCommand = objSelectCmd;
+            objAdapter.Fill(objData);
+            objPer.closeConnection();
+            return objData;
+        }
+
         // Método para guardar una Maquinaria
         public bool saveMachinery(string _nombre, string _descripcion, string _clasificacion, int _fkCultivo, int _fkParcela)
         {
@@ -35,11 +50,11 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procInsertMaquinaria";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("ma_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("ma_descripcion", MySqlDbType.VarString).Value = _descripcion;
-            objSelectCmd.Parameters.Add("ma_clasificacion", MySqlDbType.VarString).Value = _clasificacion;
-            objSelectCmd.Parameters.Add("tbl_cultivo_cul_id", MySqlDbType.Int32).Value = _fkCultivo;
-            objSelectCmd.Parameters.Add("tbl_cultivo_tbl_parcela_par_id", MySqlDbType.Int32).Value = _fkParcela;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_descripcion", MySqlDbType.VarString).Value = _descripcion;
+            objSelectCmd.Parameters.Add("v_clasificacion", MySqlDbType.VarString).Value = _clasificacion;
+            objSelectCmd.Parameters.Add("vfk_cultivoId", MySqlDbType.Int32).Value = _fkCultivo;
+            objSelectCmd.Parameters.Add("vfk_parcelaId", MySqlDbType.Int32).Value = _fkParcela;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
@@ -64,12 +79,12 @@ namespace Data
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procUpdateMaquinaria";
-            objSelectCmd.Parameters.Add("ma_id", MySqlDbType.Int32).Value = _idMachinery;
-            objSelectCmd.Parameters.Add("ma_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("ma_descripcion", MySqlDbType.VarString).Value = _descripcion;
-            objSelectCmd.Parameters.Add("ma_clasificacion", MySqlDbType.VarString).Value = _clasificacion;
-            objSelectCmd.Parameters.Add("tbl_cultivo_cul_id", MySqlDbType.Int32).Value = _fkCultivo;
-            objSelectCmd.Parameters.Add("tbl_cultivo_tbl_parcela_par_id", MySqlDbType.Int32).Value = _fkParcela;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idMachinery;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_descripcion", MySqlDbType.VarString).Value = _descripcion;
+            objSelectCmd.Parameters.Add("v_clasificacion", MySqlDbType.VarString).Value = _clasificacion;
+            objSelectCmd.Parameters.Add("vfk_cultivoId", MySqlDbType.Int32).Value = _fkCultivo;
+            objSelectCmd.Parameters.Add("vfk_parcelaId", MySqlDbType.Int32).Value = _fkParcela;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
@@ -87,7 +102,7 @@ namespace Data
         }
 
         //Método para eliminar una Maquinaria
-        public bool deleteeMachinery(int _idMachinery)
+        public bool deleteMachinery(int _idMachinery)
         {
             bool executed = false;
             int row;
@@ -96,7 +111,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procDeleteMaquinaria";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("ma_id", MySqlDbType.Int32).Value = _idMachinery;
+            objSelectCmd.Parameters.Add("v_maquinaria_id", MySqlDbType.Int32).Value = _idMachinery;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();

@@ -72,6 +72,7 @@
     <Content Include="WFCrop.aspx" />
     <Content Include="WFFarm.aspx" />
     <Content Include="WFInputs.aspx" />
+    <Content Include="WFMachinery.aspx" />
     <Content Include="WFParcel.aspx" />
     <Content Include="WFProducts.aspx" />
     <Content Include="WFSale.aspx" />
@@ -136,6 +137,13 @@
     </Compile>
     <Compile Include="WFInputs.aspx.designer.cs">
       <DependentUpon>WFInputs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFMachinery.aspx.cs">
+      <DependentUpon>WFMachinery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFMachinery.aspx.designer.cs">
+      <DependentUpon>WFMachinery.aspx</DependentUpon>
     </Compile>
     <Compile Include="WFParcel.aspx.cs">
       <DependentUpon>WFParcel.aspx</DependentUpon>
