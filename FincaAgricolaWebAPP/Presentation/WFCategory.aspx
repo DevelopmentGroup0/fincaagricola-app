@@ -6,15 +6,17 @@
     <%--Id--%>
     <asp:HiddenField ID="HFCategoryId" runat="server" />
     <%--Nombre--%>
-    <asp:Label ID="Label1" runat="server" Text="Ingresa un nombre"></asp:Label>
-    <asp:TextBox ID="TBName" runat="server"></asp:TextBox>
-    <br />
+    <div class="form-floating">
+        <asp:TextBox ID="TBName" runat="server" class="form-control" placeholder="Ingresa un Nombre"></asp:TextBox>
+        <label>Ingresa un nombre</label>
+    </div>
     <%--Ubicación--%>
-    <asp:Label ID="Label2" runat="server" Text="Descripción"></asp:Label>
-    <asp:TextBox ID="TBDescription" runat="server"></asp:TextBox>
-    <br />
-    <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
-    <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" Style="height: 26px" OnClick="BtnUpdate_Click" />
+    <div class="form-floating">
+        <asp:TextBox ID="TBDescription" runat="server" class="form-control" placeholder="Ingresa un Nombre"></asp:TextBox>
+        <label>Descripción</label>
+    </div>
+    <asp:Button ID="BtnSave" runat="server" Text="Guardar" class="btn btn-primary" OnClick="BtnSave_Click" />
+    <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar"class="btn btn-primary" OnClick="BtnUpdate_Click" />
     <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
     <asp:GridView ID="GVCategory" runat="server" AutoGenerateColumns="False" DataKeyNames="cat_id" OnSelectedIndexChanged="GVFarm_SelectedIndexChanged" OnRowDeleting="GVFarm_RowDeleting">
         <Columns>

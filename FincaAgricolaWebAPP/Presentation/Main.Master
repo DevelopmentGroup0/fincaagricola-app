@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Finca Agrícola App</title>
     <link href="src/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="src/css/style.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -15,6 +15,7 @@
     <div class="container-xxl">
     <form id="form1" runat="server">
         <%--Aqui va lo que se repite en los demas formularios--%>
+        <div class="containerAside ">
             <aside>
                 <div class="toggle">
                     <div class="logo">
@@ -82,10 +83,11 @@
                     </a>
                 </div>
             </aside>
-            <div>
+            <div class="mainForms">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
+        </div>
     </form>
     </div>
 </body>
