@@ -114,7 +114,7 @@ tr {
   text-align: center;
 }
 
-.container {
+.containerAside {
   display: grid;
   width: 100%;
   margin: 0 auto;
