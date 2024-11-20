@@ -3,8 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:TextBox ID="TBId" runat="server"></asp:TextBox>
-    <br />
     <h2>Crea un Insumo</h2>
     <%--Id--%>
     <asp:HiddenField ID="HFInputsId" runat="server" />
@@ -25,12 +23,15 @@
         <label>Cantidad</label>
     </div>
     <%--FkCultivo--%>
-    <asp:Label ID="Label1" runat="server" Text="Seleccione el cultivo"></asp:Label>
-    <asp:DropDownList ID="DDLCrops" runat="server"></asp:DropDownList>
-    <br />
+    <div class="form-floating">
+        <asp:Label ID="Label1" runat="server" Text="Seleccione el cultivo"></asp:Label>
+        <asp:DropDownList ID="DDLCrops" runat="server" class="form-select"></asp:DropDownList>
+    </div>
     <%--FkParcela--%>
-    <asp:Label ID="Label6" runat="server" Text="Seleccione la parcela"></asp:Label>
-    <asp:DropDownList ID="DDLParcela" runat="server"></asp:DropDownList>
+    <div class="form-floating">
+        <asp:Label ID="Label6" runat="server" Text="Seleccione la parcela"></asp:Label>
+        <asp:DropDownList ID="DDLParcela" runat="server" class="form-select"></asp:DropDownList>
+    </div>
     <asp:Button ID="BtnSave" runat="server" Text="Guardar" class="btn btn-success" OnClick="BtnSave_Click" />
     <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" class="btn btn-primary" OnClick="BtnUpdate_Click" />
     <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>

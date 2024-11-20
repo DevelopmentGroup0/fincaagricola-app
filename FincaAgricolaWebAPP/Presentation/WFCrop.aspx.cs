@@ -90,13 +90,13 @@ namespace Presentation
             executed = objCrop.updateCrops(_idCultivo, _nombre, _descripcion, _fkParcelaId);
             if (executed)
             {
-                LblMsj.Text = "El Clima se actualizó exitosamente";
+                LblMsj.Text = "El Cultivo se actualizó exitosamente";
                 clear();
                 showCrops();
             }
             else
             {
-                LblMsj.Text = "El clima no se actualizó";
+                LblMsj.Text = "El Cultivo no se actualizó";
             }
 
 
@@ -108,14 +108,14 @@ namespace Presentation
             executed = objCrop.deleteCrops(_idCultivo);
             if (executed)
             {
-                LblMsj.Text = "El clima se elimino exitosamente";
+                LblMsj.Text = "El Cultivo se elimino exitosamente";
                 GVCrop.EditIndex = -1;
                 clear();
                 showCrops();
             }
             else
             {
-                LblMsj.Text = "clima no eliminado";
+                LblMsj.Text = "Cultivo no eliminado";
             }
         }
 

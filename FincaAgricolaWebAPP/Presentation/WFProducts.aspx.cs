@@ -45,7 +45,7 @@ namespace Presentation
             DDLSupplier.DataValueField = "pro_id";
             DDLSupplier.DataTextField = "nombreProveedor";
             DDLSupplier.DataBind();
-            DDLSupplier.Items.Insert(0, "Seleccione");
+            DDLSupplier.Items.Insert(0, "Seleccione un Producto");
         }
 
         private void showCategoriesDDL()
@@ -54,7 +54,7 @@ namespace Presentation
             DDLCategory.DataValueField = "cat_id";
             DDLCategory.DataTextField = "nombre";
             DDLCategory.DataBind();
-            DDLCategory.Items.Insert(0, "Seleccione");
+            DDLCategory.Items.Insert(0, "Seleccione una Categoría");
         }
 
         private void clear()
