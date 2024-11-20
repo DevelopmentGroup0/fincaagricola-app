@@ -15,7 +15,7 @@
         <asp:TextBox ID="TBLocation" runat="server" class="form-control" placeholder="Ubicación"></asp:TextBox>
         <Label >Ubicación</Label>
     </div>
-    <asp:Button ID="BtnSave" runat="server" Text="Guardar" class="btn btn-primary" OnClick="BtnSave_Click" />
+    <asp:Button ID="BtnSave" runat="server" Text="Guardar" class="btn btn-success" OnClick="BtnSave_Click" />
     <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" class="btn btn-primary" OnClick="BtnUpdate_Click" />
     <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
     <%-- Agregando nombres en las columnas para identificarlos en el front--%>

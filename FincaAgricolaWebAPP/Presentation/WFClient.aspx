@@ -39,7 +39,7 @@
 
     <asp:Button ID="Button1" runat="server" Text="Guardar" class="btn btn-success" OnClick="BtnSave_Click" />
     <asp:Button ID="Button2" runat="server" Text="Actualizar" class="btn btn-primary" OnClick="BtnUpdate_Click" />
-    <asp:Label ID="Label6" runat="server" Text=""></asp:Label>
+    <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
 
     <%-- Agregando nombres en las columnas para identificarlos en el front--%>
     <asp:GridView ID="GVClient" runat="server" DataKeyNames="cli_id" AutoGenerateColumns="False" OnSelectedIndexChanged="GVClient_SelectedIndexChanged" OnRowDeleting="GVClient_RowDeleting">
