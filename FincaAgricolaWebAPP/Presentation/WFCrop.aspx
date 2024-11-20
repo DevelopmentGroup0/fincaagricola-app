@@ -28,11 +28,9 @@
             <asp:Label ID="Label6" runat="server" Text="Parcela ubicación"></asp:Label>
             <asp:DropDownList ID="DDLParcel" runat="server" class="form-select" aria-label="Floating label select example"></asp:DropDownList>
         </div>
-          <div class="form-floating">
         <asp:Button ID="BtnSave" runat="server" Text="Guardar" class="btn btn-success" OnClick="BtnSave_Click" />
         <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" class="btn btn-primary" OnClick="BtnUpdate_Click" />
         <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
-         </div>
         <br />
         <%--Lista de Cultivos--%>
         <asp:GridView ID="GVCrop" runat="server" DataKeyNames="cultivo_id" AutoGenerateColumns="false" OnSelectedIndexChanged="GVCrop_SelectedIndexChanged" OnRowDeleting="GVCrop_RowDeleting">

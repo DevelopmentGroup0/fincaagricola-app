@@ -8,27 +8,29 @@
     <asp:HiddenField ID="HFParcelId" runat="server" />
 
     <%--Dimensiones--%>
-    <asp:Label ID="Label1" runat="server" Text="Ingrese las dimensiones"></asp:Label>
-    <asp:TextBox ID="TBDimensiones" runat="server"></asp:TextBox>
-    <br />
+    <div class="form-floating">
+    <asp:TextBox runat="server" class="form-control" placeholder="Ingrese las dimensiones" ID="TBDimensiones"></asp:TextBox>
+    <Label>Ingrese las dimensiones</Label>
+    </div>
 
     <%--Ubicación--%>
-    <asp:Label ID="Label2" runat="server" Text="Ingrese la ubicación"></asp:Label>
-    <asp:TextBox ID="TBUbicacion" runat="server"></asp:TextBox>
+    <div class="form-floating">
+    <asp:TextBox runat="server" class="form-control" placeholder="Ingrese la ubicación" ID="TBUbicacion"></asp:TextBox>
+    <Label>Ingrese la ubicación</Label>
     <br />
-          <%--fKFinca--%>
-  <asp:Label ID="Label6" runat="server" Text="Finca"></asp:Label>
-  <asp:DropDownList ID="DDLFarm" runat="server"></asp:DropDownList>
-  <br />
+  <%--fKFinca--%>
+ <div class="form-floating">
+  <asp:Label ID="Label6" runat="server" Text="Finca"> Seleccione una finca</asp:Label>
+<asp:DropDownList ID="DDLFarm" runat="server" class="form-select" aria-label="Floating label select example"></asp:DropDownList>
+ </div>
   <%--fKClima--%>
-  <asp:Label ID="Label7" runat="server" Text="Clima"></asp:Label>
-  <asp:DropDownList ID="DDLWeather" runat="server"></asp:DropDownList>
-  <br />
-    <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
-    <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" OnClick="BtnUpdate_Click" />
+  <div class="form-floating">
+  <asp:Label ID="Label7" runat="server" Text="Clima">Seleccione un Clima</asp:Label>
+    <asp:DropDownList ID="DDLWeather" runat="server" class="form-select" aria-label="Floating label select example"></asp:DropDownList>
+  </div>
+    <asp:Button ID="BtnSave" runat="server" Text="Guardar" class="btn btn-success" OnClick="BtnSave_Click" />
+    <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" class="btn btn-primary" OnClick="BtnUpdate_Click" />
     <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
-    <br />
-
     <%--Lista de Parcelas--%>
 <asp:GridView ID="GVParcel" runat="server" DataKeyNames="parcela_id" AutoGenerateColumns="false" OnSelectedIndexChanged="GVParcel_SelectedIndexChanged" OnRowDeleting="GVParcel_RowDeleting">
         <Columns>
