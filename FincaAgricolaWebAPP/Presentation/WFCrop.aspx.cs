@@ -40,7 +40,7 @@ namespace Presentation
         {
             DDLParcel.DataSource = objPar.showParcelDDL();
             DDLParcel.DataValueField = "par_id";
-            DDLParcel.DataTextField = "ubicacionParcela";
+            DDLParcel.DataTextField = "nombre";
             DDLParcel.DataBind();
             DDLParcel.Items.Insert(0, "Seleccione");
         }
