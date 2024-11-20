@@ -28,7 +28,7 @@ namespace Data
         }
 
         //Metodo para guardar un nuevo usuario
-        public bool saveUser(string _nombre, string _correo, string _contrasena, string _rol, string _direccion, string _ciudad)
+        public bool saveUser(string _nombre, string _correo, string _contrasena, string _rol)
         {
             bool executed = false;
             int row;
@@ -37,12 +37,10 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procInsertUser";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("usu_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("usu_correo", MySqlDbType.DateTime).Value = _correo;
-            objSelectCmd.Parameters.Add("usu_contrasena", MySqlDbType.DateTime).Value = _contrasena;
-            objSelectCmd.Parameters.Add("usu_rol", MySqlDbType.VarString).Value = _rol;
-            objSelectCmd.Parameters.Add("usu_direccion", MySqlDbType.DateTime).Value = _direccion;
-            objSelectCmd.Parameters.Add("usu_ciudad", MySqlDbType.DateTime).Value = _ciudad;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_correo", MySqlDbType.VarString).Value = _correo;
+            objSelectCmd.Parameters.Add("v_contrasena", MySqlDbType.VarString).Value = _contrasena;
+            objSelectCmd.Parameters.Add("v_rol", MySqlDbType.VarString).Value = _rol;
 
             try
             {
@@ -62,7 +60,7 @@ namespace Data
         }
 
         //Metodo para actualizar un usuario
-        public bool updateUser(int _idUser, string _nombre, string _correo, string _contrasena, string _rol, string _direccion, string _ciudad)
+        public bool updateUser(int _idUser, string _nombre, string _correo, string _contrasena, string _rol)
         {
             bool executed = false;
             int row;
@@ -71,13 +69,11 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procUpdateUser";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("usu_id", MySqlDbType.VarString).Value = _idUser;
-            objSelectCmd.Parameters.Add("usu_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("usu_correo", MySqlDbType.DateTime).Value = _correo;
-            objSelectCmd.Parameters.Add("usu_contrasena", MySqlDbType.DateTime).Value = _contrasena;
-            objSelectCmd.Parameters.Add("usu_rol", MySqlDbType.DateTime).Value = _rol;
-            objSelectCmd.Parameters.Add("usu_direccion", MySqlDbType.DateTime).Value = _direccion;
-            objSelectCmd.Parameters.Add("usu_ciudad", MySqlDbType.DateTime).Value = _ciudad;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idUser;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_correo", MySqlDbType.VarString).Value = _correo;
+            objSelectCmd.Parameters.Add("v_contrasena", MySqlDbType.VarString).Value = _contrasena;
+            objSelectCmd.Parameters.Add("v_rol", MySqlDbType.VarString).Value = _rol;
 
             try
             {
@@ -106,7 +102,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procDeleteUser";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("cli_id", MySqlDbType.Int32).Value = _idUser;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idUser;
 
             try
             {

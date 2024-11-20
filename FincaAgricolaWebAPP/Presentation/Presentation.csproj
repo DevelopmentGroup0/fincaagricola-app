@@ -95,9 +95,12 @@
     <Content Include="WFFarm.aspx" />
     <Content Include="WFInputs.aspx" />
     <Content Include="WFIrrigation.aspx" />
+    <Content Include="WFMachinery.aspx" />
     <Content Include="WFParcel.aspx" />
     <Content Include="WFProducts.aspx" />
+    <Content Include="WFSale.aspx" />
     <Content Include="WFSupplier.aspx" />
+    <Content Include="WFUsers.aspx" />
     <Content Include="WFWeather.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +167,12 @@
     </Compile>
     <Compile Include="WFIrrigation.aspx.designer.cs">
       <DependentUpon>WFIrrigation.aspx</DependentUpon>
+    <Compile Include="WFMachinery.aspx.cs">
+      <DependentUpon>WFMachinery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFMachinery.aspx.designer.cs">
+      <DependentUpon>WFMachinery.aspx</DependentUpon>
     </Compile>
     <Compile Include="WFParcel.aspx.cs">
       <DependentUpon>WFParcel.aspx</DependentUpon>
@@ -179,12 +188,26 @@
     <Compile Include="WFProducts.aspx.designer.cs">
       <DependentUpon>WFProducts.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WFSale.aspx.cs">
+      <DependentUpon>WFSale.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFSale.aspx.designer.cs">
+      <DependentUpon>WFSale.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WFSupplier.aspx.cs">
       <DependentUpon>WFSupplier.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WFSupplier.aspx.designer.cs">
       <DependentUpon>WFSupplier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFUsers.aspx.cs">
+      <DependentUpon>WFUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFUsers.aspx.designer.cs">
+      <DependentUpon>WFUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="WFWeather.aspx.cs">
       <DependentUpon>WFWeather.aspx</DependentUpon>
