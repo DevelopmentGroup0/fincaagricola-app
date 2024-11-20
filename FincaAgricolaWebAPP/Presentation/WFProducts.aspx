@@ -12,21 +12,24 @@
     </div>
     <%--Descripción--%>
     <div class="form-floating">
-    <asp:TextBox ID="TBDescription" runat="server"></asp:TextBox>
-    <asp:Label ID="Label2" runat="server">Descripción</asp:Label>
+    <asp:TextBox ID="TBDescription" runat="server" class="form-control" placeholder="Ingresa una Descripción"></asp:TextBox>
+    <Label runat="server">Descripción</Label>
     </div>
     <%--Cantidad--%>
-    <asp:Label ID="Label3" runat="server" Text="Cantidad (Unds)"></asp:Label>
-    <asp:TextBox ID="TBCantidad" runat="server"></asp:TextBox>
-    <br />
+    <div class="form-floating">
+    <asp:TextBox ID="TBCantidad" runat="server" class="form-control" placeholder="Ingresa Cantidad (Unds)"></asp:TextBox>
+    <Label>Cantidad (Unds)</Label>
+    </div>
     <%--Precio--%>
-    <asp:Label ID="Label4" runat="server" Text="Precio"></asp:Label>
-    <asp:TextBox ID="TBPrecio" runat="server"></asp:TextBox>
-    <br />
+    <div class="form-floating">
+    <asp:TextBox ID="TBPrecio" runat="server" class="form-control" placeholder="Ingresa Cantidad (Unds)"></asp:TextBox>
+    <Label>Precio</Label>
+    </div>
     <%--Imagen--%>
-    <asp:Label ID="Label5" runat="server" Text="Añade una Imagen"></asp:Label>
-    <asp:TextBox ID="TBImg" runat="server"></asp:TextBox>
-    <br />
+    <div class="form-floating">
+    <asp:TextBox ID="TBImg" runat="server" class="form-control"></asp:TextBox>
+    <Label>Añade una Imagen</Label>
+    </div>
     <%--fKProveedor--%>
     <asp:Label ID="Label6" runat="server" Text="Proveedor"></asp:Label>
     <asp:DropDownList ID="DDLSupplier" runat="server"></asp:DropDownList>
