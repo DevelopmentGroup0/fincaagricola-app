@@ -15,8 +15,8 @@
         <asp:TextBox ID="TBDescription" runat="server" class="form-control" placeholder="Ingresa un Nombre"></asp:TextBox>
         <label>Descripción</label>
     </div>
-    <asp:Button ID="BtnSave" runat="server" Text="Guardar" class="btn btn-primary" OnClick="BtnSave_Click" />
-    <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar"class="btn btn-primary" OnClick="BtnUpdate_Click" />
+    <asp:Button ID="BtnSave" runat="server" Text="Guardar" class="btn btn-success" OnClick="BtnSave_Click" />
+    <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" class="btn btn-primary" OnClick="BtnUpdate_Click" />
     <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
     <asp:GridView ID="GVCategory" runat="server" AutoGenerateColumns="False" DataKeyNames="cat_id" OnSelectedIndexChanged="GVFarm_SelectedIndexChanged" OnRowDeleting="GVFarm_RowDeleting">
         <Columns>

@@ -6,13 +6,15 @@
     <%--Id--%>
     <asp:HiddenField ID="HFProductId" runat="server" />
     <%--Nombre--%>
-    <asp:Label ID="Label1" runat="server" Text="Nombre del Producto"></asp:Label>
-    <asp:TextBox ID="TBName" runat="server"></asp:TextBox>
-    <br />
+    <div class="form-floating">
+        <asp:TextBox ID="TBName" runat="server" class="form-control" placeholder="Ingresa un NIT"></asp:TextBox>
+        <label>Nombre del Producto</label>
+    </div>
     <%--Descripción--%>
-    <asp:Label ID="Label2" runat="server" Text="Descripción"></asp:Label>
+    <div class="form-floating">
     <asp:TextBox ID="TBDescription" runat="server"></asp:TextBox>
-    <br />
+    <asp:Label ID="Label2" runat="server">Descripción</asp:Label>
+    </div>
     <%--Cantidad--%>
     <asp:Label ID="Label3" runat="server" Text="Cantidad (Unds)"></asp:Label>
     <asp:TextBox ID="TBCantidad" runat="server"></asp:TextBox>
